@@ -1,0 +1,360 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	上海交通大学-电气工程系
+</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="css/index.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".fclass").mouseover(function() {
+                $(this).parent().find("ul").show();
+            });
+            $(".fclass").parent().mouseleave(function() {
+                $(this).find("ul").eq(0).hide();
+            });
+            $("#btnSearch").click(function() {
+                location.href = "Search.aspx?search=" + $("#searchitme").val();
+            });
+            $("input").keypress(function(e) {
+                var keyCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+                if (keyCode == 13) {
+                    for (var i = 0; i < this.form.elements.length; i++) {
+                        if (this == this.form.elements[i]) break;
+                    }
+                    i = (i + 1) % this.form.elements.length;
+                    this.form.elements[i].focus();
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+
+        });
+    </script>
+    
+<style type="text/css">
+.right_nr ul{
+    list-style:outside;
+    padding-left: 15px;
+}
+.right_nr ol
+{
+    padding-left: 15px;
+}
+</style>
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="Show.aspx?info_id=356&amp;info_lb=571&amp;flag=490" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJODM1MTIzNTUyD2QWAmYPZBYCAgMPZBYEZg9kFgICAQ8WAh4JaW5uZXJodG1sBZ4ePHVsPjxsaT48YSBjbGFzcz0nZmNsYXNzJyBocmVmPSJEZWZhdWx0LmFzcHgiPummliDpobU8L2E+PC9saT48bGkgY2xhc3M9Im1lbnVfeCI+PC9saT48bGk+PGEgY2xhc3M9J2ZjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NDg5JmZsYWc9NDg5Ij7ns7vmpoLlhrU8L2E+PHVsIGNsYXNzPSJtZW51Q2hpbGQiPjxsaSBjbGFzcz0nY2NsYXNzJz48YSBjbGFzcz0nYWNsYXNzJyBocmVmPSJjb250ZW50LmFzcHg/aW5mb19sYj01MDcmZmxhZz00ODkiPuezu+aDheamguWGtTwvYT48L2xpPjxsaSBjbGFzcz0nY2NsYXNzJz48YSBjbGFzcz0nYWNsYXNzJyBocmVmPSJwaWN0dXJlLmFzcHg/aW5mb19sYj01MDgmZmxhZz00ODkiPuezu+mihuWvvDwvYT48L2xpPjxsaSBjbGFzcz0nY2NsYXNzJz48YSBjbGFzcz0nYWNsYXNzJyBocmVmPSJjb250ZW50LmFzcHg/aW5mb19sYj01MDkmZmxhZz00ODkiPuacuuaehOiuvue9rjwvYT48L2xpPjxsaSBjbGFzcz0nY2NsYXNzJz48YSBjbGFzcz0nYWNsYXNzJyBocmVmPSJjb250ZW50LmFzcHg/aW5mb19sYj01MTAmZmxhZz00ODkiPuWOhuWPsuayv+mdqTwvYT48L2xpPjwvdWw+PC9saT48bGkgY2xhc3M9Im1lbnVfeCI+PC9saT48bGk+PGEgY2xhc3M9J2ZjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NDkwJmZsYWc9NDkwIj7luIjotYTlipvph488L2E+PHVsIGNsYXNzPSJtZW51Q2hpbGQiPjxsaSBjbGFzcz0nY2NsYXNzJz48YSBjbGFzcz0nYWNsYXNzJyBocmVmPSJjb250ZW50LmFzcHg/aW5mb19sYj01MTImZmxhZz00OTAiPuW4iOi1hOS4gOiniDwvYT48L2xpPjxsaSBjbGFzcz0nY2NsYXNzJz48YSBjbGFzcz0nYWNsYXNzJyBocmVmPSJwaWN0dXJlc3VtbWFyeS5hc3B4P2luZm9fbGI9NTE0JmZsYWc9NDkwIj7kuKTpmaLpmaLlo6s8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0icGljdHVyZS5hc3B4P2luZm9fbGI9NTM4JmZsYWc9NDkwIj7mlZnluIjkv6Hmga88L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTM5JmZsYWc9NDkwIj7lhbzogYzmlZnmjog8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSJtZW51X3giPjwvbGk+PGxpPjxhIGNsYXNzPSdmY2xhc3MnIGhyZWY9Im5ld3MuYXNweD9pbmZvX2xiPTQ5MSZmbGFnPTQ5MSI+56eR5a2m56CU56m2PC9hPjx1bCBjbGFzcz0ibWVudUNoaWxkIj48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTE3JmZsYWc9NDkxIj7np5HnoJTmpoLlhrU8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTIwJmZsYWc9NDkxIj7np5HnoJTln7rlnLA8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTIyJmZsYWc9NDkxIj7np5HnoJTojrflpZY8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTIzJmZsYWc9NDkxIj7kuJPokZc8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NjIwJmZsYWc9NDkxIj7kuJPliKk8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSJtZW51X3giPjwvbGk+PGxpPjxhIGNsYXNzPSdmY2xhc3MnIGhyZWY9Im5ld3MuYXNweD9pbmZvX2xiPTQ5MiZmbGFnPTQ5MiI+5Lq65omN5Z+55YW7PC9hPjx1bCBjbGFzcz0ibWVudUNoaWxkIj48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTI2JmZsYWc9NDkyIj7mnKznp5HnlJ/ln7nlhbs8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTI3JmZsYWc9NDkyIj7noJTnqbbnlJ/ln7nlhbs8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTI4JmZsYWc9NDkyIj7ljZPotorlt6XnqIvluIjln7nlhbs8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTI5JmZsYWc9NDkyIj7lt6XnqIvnoZXlo6vln7nlhbs8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTMwJmZsYWc9NDkyIj7mlZnnoJTlrqQ8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NjIxJmZsYWc9NDkyIj7mlZnlrabmiJDmnpw8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSJtZW51X3giPjwvbGk+PGxpPjxhIGNsYXNzPSdmY2xhc3MnIGhyZWY9Im5ld3MuYXNweD9pbmZvX2xiPTQ5MyZmbGFnPTQ5MyI+5ZCI5L2c5Lqk5rWBPC9hPjx1bCBjbGFzcz0ibWVudUNoaWxkIj48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0ibmV3cy5hc3B4P2luZm9fbGI9NTMxJmZsYWc9NDkzIj7lm73pmYXljJblip7lraY8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTMyJmZsYWc9NDkzIj7lrabmnK/kvJrorq48L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSJtZW51X3giPjwvbGk+PGxpPjxhIGNsYXNzPSdmY2xhc3MnIGhyZWY9Im5ld3MuYXNweD9pbmZvX2xiPTQ5NCZmbGFnPTQ5NCI+5oub6IGY5L+h5oGvPC9hPjx1bCBjbGFzcz0ibWVudUNoaWxkIj48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0ibmV3cy5hc3B4P2luZm9fbGI9NTM1JmZsYWc9NDk0Ij7ljZrlo6vlkI7mi5vogZg8L2E+PC9saT48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0ibmV3cy5hc3B4P2luZm9fbGI9NTM2JmZsYWc9NDk0Ij7mlZnogYzlt6Xmi5vogZg8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSJtZW51X3giPjwvbGk+PGxpPjxhIGNsYXNzPSdmY2xhc3MnIGhyZWY9Im5ld3MuYXNweD9pbmZvX2xiPTQ5NSZmbGFnPTQ5NSI+5pWZ5bel5LmL5a62PC9hPjx1bCBjbGFzcz0ibWVudUNoaWxkIj48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0icGljdHVyZXN1bW1hcnkuYXNweD9pbmZvX2xiPTYxNyZmbGFnPTQ5NSI+5paH5YyW44CB5L2T6IKy44CB5LyR6ZeyPC9hPjwvbGk+PGxpIGNsYXNzPSdjY2xhc3MnPjxhIGNsYXNzPSdhY2xhc3MnIGhyZWY9InBpY3R1cmVzdW1tYXJ5LmFzcHg/aW5mb19sYj02MTgmZmxhZz00OTUiPuWFmue7hOe7h+a0u+WKqDwvYT48L2xpPjxsaSBjbGFzcz0nY2NsYXNzJz48YSBjbGFzcz0nYWNsYXNzJyBocmVmPSJwaWN0dXJlc3VtbWFyeS5hc3B4P2luZm9fbGI9NjE5JmZsYWc9NDk1Ij7lubTkvJrmtLvliqg8L2E+PC9saT48L3VsPjwvbGk+PGxpIGNsYXNzPSJtZW51X3giPjwvbGk+PGxpPjxhIGNsYXNzPSdmY2xhc3MnIGhyZWY9Im5ld3MuYXNweD9pbmZvX2xiPTQ5NiZmbGFnPTQ5NiI+6IGU57O75oiR5LusPC9hPjx1bCBjbGFzcz0ibWVudUNoaWxkIj48bGkgY2xhc3M9J2NjbGFzcyc+PGEgY2xhc3M9J2FjbGFzcycgaHJlZj0iY29udGVudC5hc3B4P2luZm9fbGI9NTMzJmZsYWc9NDk2Ij7ogZTns7vmiJHku6w8L2E+PC9saT48L3VsPjwvbGk+PGRpdiBjbGFzcz0iY2xlYXIiPjwvZGl2PjwvdWw+ZAICD2QWAgIBDxYCHwAFngI8cCBzdHlsZT0idGV4dC1hbGlnbjogY2VudGVyIj4KIENvcHlyaWdodCAmY29weTsgMjAwNSDniYjmnYPmiYDmnInvvJrkuIrmtbfkuqTpgJrlpKflrabnlLXmsJTlt6XnqIvns7sgJm5ic3A75aSH5qGI5Y+3PGEgaHJlZj0iaHR0cDovL2NlcnQuc2p0dS5lZHUuY24vYmVpYW5fdXNlci9zaG93LmFzcD9udW1iZXI9OTYxIj7msqrkuqRJQ1DlpIcyMDEwOTYxPC9hPiZuYnNwOyAmbmJzcDvmioDmnK/mlK/mjIHvvJo8YSBocmVmPSJodHRwOi8vd3d3LjUxZXdlYi5jbiI+57u056iL5LqS6IGUPC9hPjwvcD4KZGRQ+RZP5vpNZ9cDDkumM9t2BvmRoQ==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="EB92673F" />
+    <div class="bg">
+    <div class="box">
+        
+    <div class="top">
+    	<div class="logo">
+        	<div class="lg_pic"><img src="images/logo.jpg" /></div>
+            <div class="yuyan">
+            <div>
+            <a href="default.aspx">中文</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="en/default.aspx">English</a></div>
+              <div class="ss">
+                <div class="ss_a"><input id="searchitme" name="" type="text" /></div>
+                <div class="ss_b">
+                <img id="btnSearch" src="images/ss_anniu.jpg" style=" cursor:pointer;" /></div>
+                <div class="clear"></div>
+            </div>
+            </div>
+          
+            <div class="clear"></div>
+        </div>
+        <div class="menu">
+        	<div class="menu_a"><img src="images/menu_a.jpg" /></div>
+            <div id="_ctl0_WebUserControlTop1_menuid" class="menu_b"><ul><li><a class='fclass' href="Default.aspx">首 页</a></li><li class="menu_x"></li><li><a class='fclass' href="content.aspx?info_lb=489&flag=489">系概况</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="content.aspx?info_lb=507&flag=489">系情概况</a></li><li class='cclass'><a class='aclass' href="picture.aspx?info_lb=508&flag=489">系领导</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=509&flag=489">机构设置</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=510&flag=489">历史沿革</a></li></ul></li><li class="menu_x"></li><li><a class='fclass' href="content.aspx?info_lb=490&flag=490">师资力量</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="content.aspx?info_lb=512&flag=490">师资一览</a></li><li class='cclass'><a class='aclass' href="picturesummary.aspx?info_lb=514&flag=490">两院院士</a></li><li class='cclass'><a class='aclass' href="picture.aspx?info_lb=538&flag=490">教师信息</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=539&flag=490">兼职教授</a></li></ul></li><li class="menu_x"></li><li><a class='fclass' href="news.aspx?info_lb=491&flag=491">科学研究</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="content.aspx?info_lb=517&flag=491">科研概况</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=520&flag=491">科研基地</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=522&flag=491">科研获奖</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=523&flag=491">专著</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=620&flag=491">专利</a></li></ul></li><li class="menu_x"></li><li><a class='fclass' href="news.aspx?info_lb=492&flag=492">人才培养</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="content.aspx?info_lb=526&flag=492">本科生培养</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=527&flag=492">研究生培养</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=528&flag=492">卓越工程师培养</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=529&flag=492">工程硕士培养</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=530&flag=492">教研室</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=621&flag=492">教学成果</a></li></ul></li><li class="menu_x"></li><li><a class='fclass' href="news.aspx?info_lb=493&flag=493">合作交流</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="news.aspx?info_lb=531&flag=493">国际化办学</a></li><li class='cclass'><a class='aclass' href="content.aspx?info_lb=532&flag=493">学术会议</a></li></ul></li><li class="menu_x"></li><li><a class='fclass' href="news.aspx?info_lb=494&flag=494">招聘信息</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="news.aspx?info_lb=535&flag=494">博士后招聘</a></li><li class='cclass'><a class='aclass' href="news.aspx?info_lb=536&flag=494">教职工招聘</a></li></ul></li><li class="menu_x"></li><li><a class='fclass' href="news.aspx?info_lb=495&flag=495">教工之家</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="picturesummary.aspx?info_lb=617&flag=495">文化、体育、休闲</a></li><li class='cclass'><a class='aclass' href="picturesummary.aspx?info_lb=618&flag=495">党组织活动</a></li><li class='cclass'><a class='aclass' href="picturesummary.aspx?info_lb=619&flag=495">年会活动</a></li></ul></li><li class="menu_x"></li><li><a class='fclass' href="news.aspx?info_lb=496&flag=496">联系我们</a><ul class="menuChild"><li class='cclass'><a class='aclass' href="content.aspx?info_lb=533&flag=496">联系我们</a></li></ul></li><div class="clear"></div></ul></div>
+            <div class="menu_c"><img src="images/menu_c.jpg" /></div>
+            <div class="clear"></div>
+        </div><!--menu -->
+    </div><!--top -->
+   
+        <div class="banner">
+            <img src="images/banner_xinjidi.jpg" /></div>
+        <!--banner -->
+        
+        <div class="content">
+            <table width="100%" border="0">
+                <tr>
+                    <td valign="top" class="left">
+                        
+<div class="left_menu">
+    <div class="left_menu_bt">
+          师资力量</div>
+    
+    <div class="left_menu_nr">
+        <ul>
+            
+            <li><a  title="师资一览" href="content.aspx?info_lb=512&flag=490">
+                师资一览</a></li>
+            
+            <li><a  title="两院院士" href="picturesummary.aspx?info_lb=514&flag=490">
+                两院院士</a></li>
+            
+            <li><a  title="教师信息" href="picture.aspx?info_lb=538&flag=490">
+                教师信息</a></li>
+            
+            <div class="clear">
+            </div>
+            <ul class="sanji">
+                
+                <li><a  title="教授" href="teacher.aspx?info_lb=561&flag=538">
+                    教授</a></li>
+                
+                <li><a  title="研究员" href="teacher.aspx?info_lb=560&flag=538">
+                    研究员</a></li>
+                
+                <li><a  title="副教授" href="teacher.aspx?info_lb=562&flag=538">
+                    副教授</a></li>
+                
+                <li><a  title="副研究员" href="teacher.aspx?info_lb=563&flag=538">
+                    副研究员</a></li>
+                
+                <li><a  title="高级工程师" href="teacher.aspx?info_lb=564&flag=538">
+                    高级工程师</a></li>
+                
+                <li><a  title="讲师" href="teacher.aspx?info_lb=565&flag=538">
+                    讲师</a></li>
+                
+                <li><a  title="助理研究员" href="teacher.aspx?info_lb=566&flag=538">
+                    助理研究员</a></li>
+                
+                <li><a  title="工程师" href="teacher.aspx?info_lb=567&flag=538">
+                    工程师</a></li>
+                
+            </ul>
+            
+            <li><a  title="兼职教授" href="content.aspx?info_lb=539&flag=490">
+                兼职教授</a></li>
+            
+        </ul>
+    </div>
+    
+    <div>
+        <img src="images/left_bottom.jpg" /></div>
+    
+</div>
+<!--left_menu -->
+
+                    </td>
+                    <td valign="top" class="right">
+                        <div class="right_bt">
+                            
+<strong>您现在的位置：</strong><a href="Default.aspx">首页</a> >> <a href="content.aspx?info_lb=490&flag=490">师资力量</a> >> <a href="picture.aspx?info_lb=538&flag=490">教师信息</a> >> <a href="teacher.aspx?info_lb=561&flag=538">教授</a> >> <a href="picture.aspx?info_lb=571&flag=561">高电压与绝缘技术</a>
+                        </div>
+                        <div class="right_nr">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td height="40" align="center" style="font-size: 16px; font-weight: bolder; color: #333;
+                                            ">
+                                            肖登明 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="color: #C40000; line-height: 30px;">
+                                            <span style="display:none;">
+                                                发表时间：2012-06-06</span><span style="padding-left:10px;display:none">阅读次数：11993次</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: left; font-size: 12px; line-height: 25px;">
+                                            <p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0" style="width:100.0%;" width="100%">
+	<tbody>
+		<tr>
+			<td colspan="3">
+				<p align="center">
+					<span style="font-family:times new roman,times,serif;">肖登明</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;"><img alt="说明: http://yzb.sjtu.edu.cn/images/together/sp.gif" height="1" src="file:///C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\msohtmlclip1\01\clip_image001.gif" width="1" /></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:18.0%;">
+				<p align="center">
+					<span style="font-family:times new roman,times,serif;">导师姓名</span></p>
+			</td>
+			<td style="width:48.0%;">
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">肖登明</span></p>
+			</td>
+			<td rowspan="3" style="width:24.0%;">
+				<p align="center">
+					<span style="font-family:times new roman,times,serif;"><img alt="" src="/userfiles/images/肖登明.jpg" style="width: 200px; height: 236px;" /></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p align="center">
+					<span style="font-family:times new roman,times,serif;">研究方向</span></p>
+			</td>
+			<td style="width:48.0%;">
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">气体放电与气体绝缘; 电力设备在线监测与故障诊断</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p align="center">
+					<span style="font-family:times new roman,times,serif;">联系方式</span></p>
+			</td>
+			<td style="width:48.0%;">
+				<table border="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td>
+								&nbsp;</td>
+						</tr>
+						<tr>
+							<td>
+								<p align="left">
+									<span style="font-family:times new roman,times,serif;">通讯地址：上海市徐汇区华山路1954号上海交通大学高压实验室3楼</span></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;</td>
+						</tr>
+						<tr>
+							<td>
+								<p align="left">
+									<span style="font-family:times new roman,times,serif;">邮政编码：200030</span></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;</td>
+						</tr>
+						<tr>
+							<td>
+								<p align="left">
+									<span style="font-family:times new roman,times,serif;">联系电话：021－62940491，13901635528</span></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;</td>
+						</tr>
+						<tr>
+							<td>
+								<p align="left">
+									<span style="font-family:times new roman,times,serif;">Email：dmxiao@mail.sjtu.edu.cn</span></p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p align="center">
+					<span style="font-family:times new roman,times,serif;">个人简介</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;"><img alt="说明: http://yzb.sjtu.edu.cn/images/together/sp.gif" height="1" src="file:///C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\msohtmlclip1\01\clip_image001.gif" width="1" /></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">肖登明,男，1953年12月生于广西柳州市，82年毕业于西安交通大学电气工程系（学士），87年毕业于广西大学电气工程系（硕士）、94年毕业于西安交通大学电气工程系（博士）。现为上海交通大学电气工程系教授、博士生导师。肖登明教授20年来一直从事电气工程领域的教学和科研工作。</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">近五年来主要的科研成果如下：</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">1．&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 承担了电力部门的7项科研项目，4项国家自然科学基金项目和一项总理基金项目（B类），主持研究经费达900多万元。</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">2．&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 主持研究的&ldquo;大型油浸电力设备色谱在线监测系统&rdquo;达国际先进水平，2000年12月通过教育部主持的鉴定，并已在上海、广西、福建、江西、贵州等地的电力系统推广应用。2002年获得中国电力科学技术奖二等奖。主持研究的&ldquo;城市路灯遥控遥测遥信系统&rdquo;获2003年广西科技进步奖三等奖。主持研究的&ldquo;高压断路器的在线监测&rdquo;2009年中国电力科学技术奖二等奖，获3项发明专利。</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">3．&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在国内外核心刊物上发表论文近70篇。其中有关&ldquo;气体放电&rdquo;的研究30篇被SCI收录（包括J.Phys.D., J.A.P.，J.J.A.P.和IEEE杂志），26篇被EI收录.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">主编&ldquo;十五&rdquo;规划教材两本&ldquo;电气工程概论&rdquo;、&ldquo;电力设备在线监测与故障诊断&rdquo;。目前指导博士生7人，硕士7人。</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">目前主要研究方向为：</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">1．&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 气体放电与气体绝缘</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">2．&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 电力设备在线监测与故障诊断</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">3．&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 电工新技术与新能源</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p align="center">
+					<span style="font-family:times new roman,times,serif;">代表性论著</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Z.S.Zhang*, D.M.Xiao, Y.Li, &ldquo;Rogowski air coil sensor technique for on-line partial discharge measurement of power cables,&rdquo; IET SCIENCE MEASUREMENT &amp; TECHNOLOGY, Vol.3, No.3,pp. 187-196, May. 2009.&nbsp;</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X. L. Liu*, J. W. Wang, D.M. Xiao, &ldquo;Analysis of the insulation characteristics of c-C4F8/CO2 gas mixtures by the Monte Carlo method, &rdquo; JOURNAL OF PHYSICS D-APPLIED PHYSICS, Vol. 41, No. 1, pp.(015206)1-5, Jan. 2008.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X.L. Liu*, D. M. Xiao, Y.A. Wang, Z.S. Zhang, &ldquo;Monte carlo simulation of electron swarms parameters in c-C4F8/CF4 gas mixtures, &rdquo; Journal of Shanghai Jiaotong University (Science), Vol. 13E, No. 4, pp.443-447, Aug.. 2008.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B.T. Wu*, D.M. Xiao, &ldquo;Predicting the dielectric strength of c-C4F8 and SF6 gas mixtures by Monte Carlo method, &rdquo;&nbsp; Journal of Shanghai Jiaotong University (Science), Vol.12E, No.1, pp.121-124, Feb. 2007.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X.L. Liu* , D.M. Xiao, &ldquo;Monte Carlo simulation of electron swarm parameters in c-C4F8,&rdquo; European Physical Journal-Applied Physics, Vol. 38, No. 3 , pp. 269&ndash;274 , Jun. 2007.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X. L. Liu*, D.M. Xiao, &ldquo; Monte Carlo Simulation of Electron Swarm Parameters in the SF6/CF4 Gas Mixtures,&rdquo; Japanese Journal of Applied Physics，Vol. 46, No. 4A, pp. 1663-1667, Apr. 2007.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B.T. Wu*, D.M. Xiao, Z. S. Liu, &ldquo;Analysis of insulation characteristics of c-C4F8 and N-2 gas mixtures by the Monte Carlo method ,&rdquo; JOURNAL OF PHYSICS D-APPLIED PHYSICS , Vol. 39, No. 19, pp. 4204-4207,Oct. 2006.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L.Z. Huang*, L. Dong, Y.T. Chen, D. M. Xiao, &ldquo;Effects of sinusoidal 50 Hz magnetic field on viability, cell cycle and apoptosis of HL-60 cells,&rdquo; EUROPEAN PHYSICAL JOURNAL-APPLIED PHYSICS , Vol. 35, No. 3, pp. 217-221, Sep. 2006.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B.T. Wu*, D.M. Xiao, L.C. Zhang , &ldquo;Electron swarm coefficients in SF6 and CF4 gas mixtures from Monte Carlo method,&rdquo; EUROPEAN PHYSICAL JOURNAL-APPLIED PHYSICS, Vol.35, No.1, pp.56-60, Jul, 2006.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L.Z. Huang*, L. Dong, H.S. Qi, D.M. Xiao, &ldquo;Effects of oscillating magnetic field on mammalian cells: Theoretical analysis and experiments, &rdquo;&nbsp; WSEAS Transactions on Circuits and Systems, Vol. 5, No. 1, pp.46-52, Jan. 2006.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D.M. Xiao, J.L. Yang, X. Xu, &ldquo;Electron swarm parameters in SF6 and CF4 gas mixtures,&rdquo; JAPANESE JOURNAL OF APPLIED PHYSICS PART 2-LETTERS &amp; EXPRESS LETTERS, Vol. 43, No. 3A, pp. L369-L371, Mar. 2004.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D.M. Xiao, X. Xu, J.L. Yang, &ldquo; Monte Carlo method for electron transport simulation in SF6-CO2 gas mixtures, &rdquo; JAPANESE JOURNAL OF APPLIED PHYSICS PART 1-REGULAR PAPERS SHORT NOTES &amp; REVIEW PAPERS , Vol. 43, No. 2 , pp. 703-704, Feb. 2004.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Y. Yin, D.M. Xiao, D. Tu, &ldquo;Effect of free radical scavenger on space charge distribution in polyethylene during electrical aging , &rdquo; JAPANESE JOURNAL OF APPLIED PHYSICS PART 1-REGULAR PAPERS SHORT NOTES &amp; REVIEW PAPERS, Vol. 41, No.6A, pp. 3791-3797, Jun.2002.</span></p>
+				<p align="left">
+					<span style="font-family:times new roman,times,serif;">14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D.M. Xiao, X.G. Li, X. Xu, &ldquo;Swarm parameters in SF6 and CO2 gas mixtures,&rdquo; JOURNAL OF PHYSICS D-APPLIED PHYSICS, Vol. 34, No.24, pp. L133-L135, Dec.2001.</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--content -->
+
+        <!--content -->
+    </div>
+    
+<div class="foot">
+<div id="_ctl0_WebUserControlBottom1_footid" class="ft_nr"><p style="text-align: center">
+ Copyright &copy; 2005 版权所有：上海交通大学电气工程系 &nbsp;备案号<a href="http://cert.sjtu.edu.cn/beian_user/show.asp?number=961">沪交ICP备2010961</a>&nbsp; &nbsp;技术支持：<a href="http://www.51eweb.cn">维程互联</a></p>
+</div>
+</div>
+    </div><!--bg -->
+    </form>
+</body>
+</html>
