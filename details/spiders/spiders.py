@@ -34,5 +34,4 @@ class DSpider(scrapy.Spider):
         # content = sel.xpath('//div[@class="arc-body font14"][2]/p[1]')
 
         doc = Document(response.body)
-        doc.title()
         print 'doc.title()', doc.title()
