@@ -41,6 +41,7 @@ class DSpider(scrapy.Spider):
         # sel = Selector(response)
         # content = sel.xpath('//div[@class="arc-body font14"][2]/p[1]')
         doc = Document(response.body)
+        # print 'type(doc)', type(doc)
         self.get_cleanpage(doc)
 
 
