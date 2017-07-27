@@ -1,5 +1,4 @@
 # coding=utf-8
-import nltk
 import jieba
 import re
 
@@ -10,4 +9,4 @@ for s in str:
 
 for x in setence:
     words = jieba.cut(x ,cut_all=False)
-    print ' '.join(words)
+    print ','.join(words)

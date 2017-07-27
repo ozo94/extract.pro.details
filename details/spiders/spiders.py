@@ -13,13 +13,12 @@ sys.setdefaultencoding('utf-8')
 
 
 datas = get_url.URLS
-p_name = []
+p_name = {}
 urls = []
-id = []
+
 for data in datas:
     urls.append(data[2])
-    p_name.append(data[1])
-    id.append(data[0])
+    p_name[data[2]]= data[1]
 
 fp = open('result.txt', 'w')
 
@@ -46,18 +45,18 @@ class DSpider(scrapy.Spider):
         # content = sel.xpath('//div[@class="arc-body font14"][2]/p[1]')
 
         # 使用readability包的初步处理，由于网页格式的问题（网页不规范），效果并不理想
-        # doc = Document(response.body)
-        # clean_html = self.get_cleanpage(doc)
+        doc = Document(response.body)
+        clean_html, title = self.get_cleanpage(doc)
+
 
         # 使用beatifulsoup获取内容，会有一大堆的ajax代码，过滤的不够干净
         # data = get_thml_content(response.body)
         # fp.write(data+ '\n')
 
-        # 使用htmlpaser,仍然存在问题
-        code = get_code(response.body)
-        data = FilterTag.strip_tags(response.body.decode(code))
-        print data
-        fp.write(data + '\n')
+        # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
+        # code = get_code(response.body)
+        data = FilterTag.strip_tags(clean_html)
+        fp.write(p_name[response.url]+ ' '+ title+ ' ' + data + '\n')
 
 
         # 使用正则表达式去去出html元素
@@ -87,4 +86,4 @@ class DSpider(scrapy.Spider):
 
         with open('content.html', 'wb') as f:
             f.write(content)
-        return clean_html
+        return clean_html, title

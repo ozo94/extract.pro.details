@@ -39,29 +39,15 @@ class FilterTag():
         parser.feed(htmlStr)
         parser.close()
 
-        for x in cache:
-            # 去除ajax代码,使用clean_html时候可以忽略这些步骤
-            if '$' in x:
-                x = ''
-            else:
-                x = x.replace('\t','').replace(' ', '').\
+        for data in cache:
+            data = data.replace('\t','').replace(' ', '').\
                     replace('\n', '').replace('\r', '')
 
-            if x:
+            if data:
                 result.append(x)
 
         return ''.join(result)
 
-    def stripTagSimple(self, htmlStr):
-        '''
-        最简单的过滤html <>标签的方法    注意必须是<任意字符>  而不能单纯是<>
-        :param htmlStr:
-        '''
-        self.htmlStr = htmlStr
-        dr =re.compile(r'<[^>]+>',re.S)
-        # dr = re.compile(r']*>', re.S)
-        htmlStr = re.sub(dr, '', htmlStr)
-        return htmlStr
 
 
 if __name__ == '__main__':
