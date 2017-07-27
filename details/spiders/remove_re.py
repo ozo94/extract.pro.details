@@ -1,92 +1,103 @@
-#coding:utf-8
+# coding=utf-8
 import re
-from remove import get_code
+from remove_pas import get_code
 
-def remove_js_css (content):
-    """ remove the the javascript and the stylesheet and the comment content (<script>....</script> and <style>....</style> <!-- xxx -->) """
-    r = re.compile(r'''<script.*?</script>''',re.I|re.M|re.S)
-    s = r.sub ('',content)
-    r = re.compile(r'''<style.*?</style>''',re.I|re.M|re.S)
-    s = r.sub ('', s)
-    r = re.compile(r'''<!--.*?-->''', re.I|re.M|re.S)
-    s = r.sub('',s)
-    r = re.compile(r'''<meta.*?>''', re.I|re.M|re.S)
-    s = r.sub('',s)
-    r = re.compile(r'''<ins.*?</ins>''', re.I|re.M|re.S)
-    s = r.sub('',s)
+# 手工匹配的方法，存在考虑不到的情况（主要使用正则表达式去匹配）
+# 这个方法的好处是，不用考虑编码问题，原网页是什么编码，还返回什么编码
+def filter_tags(htmlstr):
+    '''
+    过滤HTML中的标签
+    将HTML中标签等信息去掉
+    :param htmlstr: HTML字符串.
+    :return:
+    '''
+
+
+
+    # 先过滤CDATA, 匹配CDATA
+    re_cdata = re.compile('//<!CDATA\[[ >]∗ //\] > ',re.I)
+    # re_cdata = re.compile('//]*//\]\]>', re.I)
+    # Script
+    re_script = re.compile('<\s*script[^>]*>[^<]*<\s*/\s*script\s*>', re.I)
+    # style
+    re_style = re.compile('<\s*style[^>]*>[^<]*<\s*/\s*style\s*>', re.I)
+    # 处理换行
+    re_br = re.compile('<br\s*?/?>')
+    # HTML标签
+    re_h = re.compile('</?\w+[^>]*>')
+    # HTML注释
+    re_comment = re.compile('<!--[^>]*-->')
+    # 一些非标准的标签，所有<test>格式都去除，暴力方案
+    re_all = re.compile('<[^>]+>')
+
+
+
+    # 去掉对应的内容
+    s = htmlstr
+
+
+
+    s= re_all.sub('',s)
+    s = re_cdata.sub('', s)
+    s = re_script.sub('', s)
+    s = re_style.sub('', s)
+    s = re_h.sub('', s)
+    s = re_comment.sub('', s)
+    s = re_br.sub('', s)
+
+    # 去掉多余的空行,换行就暂不去除了，原网页相当于分好换行了
+    blank_line_l = re.compile('\n')
+    s = blank_line_l.sub('', s)
+    blank_kon = re.compile('\t')
+    s = blank_kon.sub('', s)
+    blank_two = re.compile('\r')
+    s = blank_two.sub('', s)
+    blank_three = re.compile(' ')
+    s = blank_three.sub('', s)
+
+    # 替换实体
+    s = replaceCharEntity(s)
     return s
 
-def remove_empty_line (content):
-    """remove multi space """
-    r = re.compile(r'''^\s+$''', re.M|re.S)
-    s = r.sub ('', content)
-    r = re.compile(r'''\n+''',re.M|re.S)
-    s = r.sub('\n',s)
-    return s
 
-def remove_any_tag (s):
-    s = re.sub(r'''<[^>]+>''','',s)
-    return s.strip()
 
-def remove_any_tag_but_a (s):
-    text = re.findall (r'''<a[^r][^>]*>(.*?)</a>''',s,re.I|re.S|re.S)
-    text_b = remove_any_tag (s)
-    return len(''.join(text)),len(text_b)
+def replaceCharEntity(htmlstr):
+    '''
+    替换常用HTML字符实体.
+    使用正常的字符替换HTML中特殊的字符实体.
+    你可以添加新的实体字符到CHAR_ENTITIES中,处理更多HTML字符实体.
+    :param htmlstr: HTML字符串
+    :return:
+    '''
+    CHAR_ENTITIES = {'nbsp': ' ', '160': ' ',
+                     'lt': '<', '60': '<',
+                     'gt': '>', '62': '>',
+                     'amp': '&', '38': '&',
+                     'quot': '"''"', '34': '"', }
 
-def remove_image (s,n=50):
-    image = 'a' * n
-    r = re.compile (r'''<img.*?>''',re.I|re.M|re.S)
-    s = r.sub(image,s)
-    return s
+    re_charEntity = re.compile(r'&#?(?P<name>\w+);')
+    sz = re_charEntity.search(htmlstr)
+    while sz:
+        entity = sz.group()  # entity全称，如>
+        key = sz.group('name')  # 去除&;后entity,如>为gt
+        try:
+            htmlstr = re_charEntity.sub(CHAR_ENTITIES[key], htmlstr, 1)
+            sz = re_charEntity.search(htmlstr)
+        except KeyError:
+            # 以空串代替
+            htmlstr = re_charEntity.sub('', htmlstr, 1)
+            sz = re_charEntity.search(htmlstr)
+    return htmlstr
 
-def remove_video (s,n=1000):
-    video = 'a' * n
-    r = re.compile (r'''<embed.*?>''',re.I|re.M|re.S)
-    s = r.sub(video,s)
-    return s
 
-def sum_max (values):
-    cur_max = values[0]
-    glo_max = -999999
-    left,right = 0,0
-    for index,value in enumerate (values):
-        cur_max += value
-        if (cur_max > glo_max) :
-            glo_max = cur_max
-            right = index
-        elif (cur_max < 0):
-            cur_max = 0
-    for i in range(right, -1, -1):
-        glo_max -= values[i]
-        if abs(glo_max < 0.00001):
-            left = i
-            break
-    return left,right+1
+def repalce(s, re_exp, repl_string):
+    return re_exp.sub(repl_string,s)
 
-def method_1 (content, k=1):
-    if not content:
-        return None,None,None,None
-    tmp = content.split('\n')
-    group_value = []
-    for i in range(0,len(tmp),k):
-        group = '\n'.join(tmp[i:i+k])
-        group = remove_image (group)
-        group = remove_video (group)
-        text_a,text_b= remove_any_tag_but_a (group)
-        temp = (text_b - text_a) - 8
-        group_value.append (temp)
-    left,right = sum_max (group_value)
-    return left,right, len('\n'.join(tmp[:left])), len ('\n'.join(tmp[:right]))
-
-def extract (content):
-    content = remove_empty_line(remove_js_css(content))
-    left,right,x,y = method_1 (content)
-    return '\n'.join(content.split('\n')[left:right])
 
 if __name__ == '__main__':
     s = file('../../test.html').read()
     data = open('result2.txt', 'w')
     code = get_code(s)
-    result = remove_empty_line(remove_any_tag(remove_js_css(s.decode(code))))
+    result = filter_tags(s.decode(code))
     print result
     data.write(result)

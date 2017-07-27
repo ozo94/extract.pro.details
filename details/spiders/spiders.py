@@ -3,9 +3,9 @@ import scrapy
 import get_url
 from scrapy import Selector
 from readability import Document
-from remove import  FilterTag, get_code
+from remove_pas import  FilterTag, get_code
 from remove_bs import get_thml_content
-from remove2 import filter_tags
+from remove_re import filter_tags
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -54,17 +54,17 @@ class DSpider(scrapy.Spider):
         # fp.write(data+ '\n')
 
         # 使用htmlpaser,仍然存在问题
-        # code = get_code(response.body)
-        # data = FilterTag.strip_tags(response.body.decode(code))
-        # print data
-        # fp.write(data + '\n')
-
-
-
         code = get_code(response.body)
-        data = filter_tags(response.body.decode(code))
+        data = FilterTag.strip_tags(response.body.decode(code))
         print data
         fp.write(data + '\n')
+
+
+        # 使用正则表达式去去出html元素
+        # code = get_code(response.body)
+        # data = filter_tags(response.body.decode(code))
+        # print data
+        # fp.write(data + '\n')
 
     def get_cleanpage(self, doc):
 
