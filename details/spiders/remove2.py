@@ -1,9 +1,9 @@
 # coding=utf-8
 import re
-
+from remove import get_code
 
 # 手工匹配的方法，存在考虑不到的情况（主要使用正则表达式去匹配）
-# 这个方法的好处是，不用考虑编码问题，原网页是什么便把，还返回什么编码
+# 这个方法的好处是，不用考虑编码问题，原网页是什么编码，还返回什么编码
 def filter_tags(htmlstr):
     '''
     过滤HTML中的标签
@@ -11,8 +11,12 @@ def filter_tags(htmlstr):
     :param htmlstr: HTML字符串.
     :return:
     '''
+
+
+
     # 先过滤CDATA, 匹配CDATA
-    re_cdata = re.compile('//<!CDATA\[[ >]∗ //\] > ',re.I)
+    # re_cdata = re.compile('//<!CDATA\[[ >]∗ //\] > ',re.I)
+    re_cdata = re.compile('//]*//\]\]>', re.I)
     # Script
     re_script = re.compile('<\s*script[^>]*>[^<]*<\s*/\s*script\s*>', re.I)
     # style
@@ -24,25 +28,26 @@ def filter_tags(htmlstr):
     # HTML注释
     re_comment = re.compile('<!--[^>]*-->')
     # 一些非标准的标签，所有<test>格式都去除，暴力方案
-    re_dr = re.compile(r'<[^>]+>')
+    re_all = re.compile('<[^>]+>')
 
 
 
     # 去掉对应的内容
-    s = re_cdata.sub('', htmlstr)
+    s = htmlstr
+
+
+
+    s= re_all.sub('',s)
+    s = re_cdata.sub('', s)
     s = re_script.sub('', s)
     s = re_style.sub('', s)
     s = re_h.sub('', s)
     s = re_comment.sub('', s)
-    s = re_dr.sub('', s)
-
-
-    # 将br转换为换行
     s = re_br.sub('', s)
 
     # 去掉多余的空行,换行就暂不去除了，原网页相当于分好换行了
-    # blank_line_l = re.compile('\n')
-    # s = blank_line_l.sub('', s)
+    blank_line_l = re.compile('\n')
+    s = blank_line_l.sub('', s)
     blank_kon = re.compile('\t')
     s = blank_kon.sub('', s)
     blank_two = re.compile('\r')
@@ -90,8 +95,9 @@ def repalce(s, re_exp, repl_string):
 
 
 if __name__ == '__main__':
-    s = file('D:/spider_code/details/content.html').read()
+    s = file('../../test.html').read()
     data = open('result2.txt', 'w')
-    result = filter_tags(s)
+    code = get_code(s)
+    result = filter_tags(s.decode(code))
     print result
     data.write(result)

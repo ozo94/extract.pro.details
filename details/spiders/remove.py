@@ -3,24 +3,34 @@
 
 import re
 from HTMLParser import HTMLParser
+import chardet
+
 
 # 使用该方法时，编码存在很大的问题（不同的网站，编码不一样，paser执行的时候有转码要求）
-# import sys
-# reload(sys)
-# sys.setdefaultencoding('gb2312')
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+# 编码预测
+def get_code(data):
+    # 这个方法会读取所有的数据流后做出判断
+    result = chardet.detect(data)
+    print result
+    return result['encoding']
+
+    # 高级用法: http://chardet.readthedocs.io/en/latest/usage.html
 
 
 class FilterTag():
     def __init__(self):
         pass
 
-
-    def strip_tags(self, htmlStr):
+    @staticmethod
+    def strip_tags(htmlStr):
         '''
         使用HTMLParser进行html标签过滤
         :param htmlStr:
         '''
-        self.htmlStr = htmlStr
         cache = []
         result = []
 
@@ -30,13 +40,15 @@ class FilterTag():
         parser.close()
 
         for x in cache:
-            # 去除ajax代码
+            # 去除ajax代码,使用clean_html时候可以忽略这些步骤
             if '$' in x:
                 x = ''
             else:
-                x = x.replace('\t','').replace(' ', '').replace('\n', '')
+                x = x.replace('\t','').replace(' ', '').\
+                    replace('\n', '').replace('\r', '')
+
             if x:
-                result.append(x+'\n')
+                result.append(x)
 
         return ''.join(result)
 
@@ -53,9 +65,12 @@ class FilterTag():
 
 
 if __name__ == '__main__':
-    s = file('D:/spider_code/details/content.html').read()
-    filters = FilterTag()
+    s = file('../../test.html').read()
     data = open('result1.txt', 'w')
-    result = filters.strip_tags(s)
+
+    code = get_code(s)
+
+    result = FilterTag.strip_tags(s.decode(code))
     print result
     data.write(result)
+
