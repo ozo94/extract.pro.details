@@ -1,6 +1,6 @@
 # coding=utf-8
 import re
-from remove_pas import get_code
+
 
 # 手工匹配的方法，存在考虑不到的情况（主要使用正则表达式去匹配）
 # 这个方法的好处是，不用考虑编码问题，原网页是什么编码，还返回什么编码
@@ -16,7 +16,6 @@ def filter_tags(htmlstr):
 
     # 先过滤CDATA, 匹配CDATA
     re_cdata = re.compile('//<!CDATA\[[ >]∗ //\] > ',re.I)
-    # re_cdata = re.compile('//]*//\]\]>', re.I)
     # Script
     re_script = re.compile('<\s*script[^>]*>[^<]*<\s*/\s*script\s*>', re.I)
     # style
@@ -52,8 +51,8 @@ def filter_tags(htmlstr):
     s = blank_kon.sub('', s)
     blank_two = re.compile('\r')
     s = blank_two.sub('', s)
-    blank_three = re.compile(' ')
-    s = blank_three.sub('', s)
+    # blank_three = re.compile(' ')
+    # s = blank_three.sub('', s)
 
     # 替换实体
     s = replaceCharEntity(s)
@@ -95,9 +94,8 @@ def repalce(s, re_exp, repl_string):
 
 
 if __name__ == '__main__':
-    s = file('../../test.html').read()
-    data = open('result2.txt', 'w')
-    code = get_code(s)
-    result = filter_tags(s.decode(code))
+    s = file('../../tmp/clean_html.html').read()
+    data = open('../data/result_re.txt', 'w')
+    result = filter_tags(s)
     print result
     data.write(result)

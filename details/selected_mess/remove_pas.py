@@ -40,19 +40,18 @@ class FilterTag():
         parser.close()
 
         for data in cache:
-            data = data.replace('\t','').replace(' ', '').\
-                    replace('\n', '').replace('\r', '')
+            data = data.replace('\t','').replace('\n', '').replace('\r', '')
 
             if data:
-                result.append(x)
+                result.append(data)
 
         return ''.join(result)
 
 
 
 if __name__ == '__main__':
-    s = file('../../test.html').read()
-    data = open('result1.txt', 'w')
+    s = file('../../tmp/clean_html.html').read()
+    data = open('../data/result_pas.txt', 'w')
 
     code = get_code(s)
 

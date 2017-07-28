@@ -1,12 +1,12 @@
 # coding=utf-8
-import scrapy
-import get_url
-from scrapy import Selector
-from readability import Document
-from remove_pas import  FilterTag, get_code
-from remove_bs import get_thml_content
-from remove_re import filter_tags
 import sys
+
+import scrapy
+from readability import Document
+
+from details.selected_mess import get_url, remove_bs
+
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -18,9 +18,11 @@ urls = []
 
 for data in datas:
     urls.append(data[2])
-    p_name[data[2]]= data[1]
+    p_name[data[2]]= [data[0], data[1]]
 
-fp = open('result.txt', 'w')
+fp = open('tmp/result.txt', 'w')
+tags = open('tmp/tags.txt', 'w')
+result = open('result/result.txt', 'w')
 
 
 class DSpider(scrapy.Spider):
@@ -36,34 +38,30 @@ class DSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        filename = '%s.html' % 'test'
+        filename = 'tmp/%s.html' % 'test'
         with open(filename, 'wb') as f:
             f.write(response.body)
         self.log('Saved file %s' % filename)
 
-        # sel = Selector(response)
-        # content = sel.xpath('//div[@class="arc-body font14"][2]/p[1]')
 
         # 使用readability包的初步处理，由于网页格式的问题（网页不规范），效果并不理想
         doc = Document(response.body)
         clean_html, title = self.get_cleanpage(doc)
 
 
-        # 使用beatifulsoup获取内容，会有一大堆的ajax代码，过滤的不够干净
-        # data = get_thml_content(response.body)
-        # fp.write(data+ '\n')
-
         # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
-        # code = get_code(response.body)
-        data = FilterTag.strip_tags(clean_html)
-        fp.write(p_name[response.url]+ ' '+ title+ ' ' + data + '\n')
+        data = remove_bs.get_thml_content(clean_html)
+        if data and len(data)< 2000:
+            # 获取对应专家的信息
+            key = response.url
+            str_data = data
+            fp.write(str_data + '\n')
+            tag_data = str(p_name[key][0]) + ';'+ p_name[key][1]
+            tags.write(tag_data + '\n')
 
 
-        # 使用正则表达式去去出html元素
-        # code = get_code(response.body)
-        # data = filter_tags(response.body.decode(code))
-        # print data
-        # fp.write(data + '\n')
+
+
 
     def get_cleanpage(self, doc):
 
@@ -81,9 +79,9 @@ class DSpider(scrapy.Spider):
         short_title = doc.short_title()
         title = doc.title()
 
-        with open('clean_html.html', 'wb') as f:
+        with open('tmp/clean_html.html', 'wb') as f:
             f.write(clean_html)
 
-        with open('content.html', 'wb') as f:
+        with open('tmp/content.html', 'wb') as f:
             f.write(content)
         return clean_html, title
