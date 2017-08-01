@@ -43,7 +43,7 @@ class FilterTag():
             data = data.replace('\t','').replace('\n', '').replace('\r', '')
 
             if data:
-                result.append(data)
+                result.append(data+ ' ')
 
         return ''.join(result)
 

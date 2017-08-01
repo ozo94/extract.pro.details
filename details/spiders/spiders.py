@@ -51,7 +51,7 @@ class DSpider(scrapy.Spider):
 
         # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
         data = remove_pas.FilterTag.strip_tags(clean_html)
-        data = remove_bs.get_thml_content(clean_html)
+        # data = remove_bs.get_thml_content(clean_html)
         if data :
             # 获取对应专家的信息
             key = response.url
