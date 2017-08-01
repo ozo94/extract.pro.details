@@ -14,15 +14,18 @@ def get_result(str ,result, tags, ids):
     for x in str:
         id = id_list[flag]
 
-        basic = re.compile(r'；')
-        order = re.compile('\d{1,2}\.\s*')
-        column = re.compile(r'\s+[\u4e00-\u9fa5]+\s{0,1}：')
+        # 信息抽取，正则匹配信息
+        # basic = re.compile(r'；')
+        # order = re.compile('\d{1,2}\.\s*')
+        # column = re.compile(r'\s+[\u4e00-\u9fa5]+\s{0,1}：')
 
-        x = basic.sub('。', x)
-        x = order.sub('。', x)
-        x = column.sub('。', x)
-        print x
+        # 用指定的分割符来实现句子的分割
+        # x = basic.sub('。', x)
+        # x = order.sub('。', x)
+        # x = column.sub('。', x)
+        # print x
         # setence = re.split(r'。|；|;|\s+[\u4e00-\u9fa5]+\s*:\s*|：|\s+\d{1,2}\.\s+', x)
+
         setence = x.split('。')
 
 

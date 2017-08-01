@@ -4,7 +4,7 @@ import sys
 import scrapy
 from readability import Document
 
-from details.selected_mess import get_url, remove_bs
+from details.selected_mess import get_url, remove_bs, remove_pas
 
 
 reload(sys)
@@ -50,8 +50,9 @@ class DSpider(scrapy.Spider):
 
 
         # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
+        data = remove_pas.FilterTag.strip_tags(clean_html)
         data = remove_bs.get_thml_content(clean_html)
-        if data and len(data)< 2000:
+        if data :
             # 获取对应专家的信息
             key = response.url
             str_data = data
