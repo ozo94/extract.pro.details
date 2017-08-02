@@ -5,6 +5,7 @@ import re
 
 def get_result(str ,result, tags, ids):
 
+    # 对应文本的所属专家id和名字
     id_list = []
     for x in ids:
         id = x.strip('\n').split(';')
@@ -12,7 +13,9 @@ def get_result(str ,result, tags, ids):
 
     flag = 0
     for x in str:
+        x = x.strip('\n')
         id = id_list[flag]
+        flag = flag+1
 
         # 信息抽取，正则匹配信息
         # basic = re.compile(r'；')
@@ -33,10 +36,11 @@ def get_result(str ,result, tags, ids):
             # 去除多余空格
             x = x.strip(' ')
             data = ' '.join(x.split())
-
-            result.write(data+'\n')
-            tags.write(id[0] + ' ' + id[1]+ '\n')
+            if data:
+                result.write(data+'\n')
+                tags.write(id[0] + ' ' + id[1]+ '\n')
             print data
+
 
 if __name__ == '__main__':
     str = open('../../tmp/result.txt', 'r')
@@ -45,6 +49,6 @@ if __name__ == '__main__':
     result = open('../result/result.txt', 'w')
     tags = open('../result/tags.txt', 'w')
 
-    str = open('../data/result_re.txt', 'r')
+    # str = open('../data/result_re.txt', 'r')
 
     get_result(str, result, tags, id)

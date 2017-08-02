@@ -6,8 +6,8 @@ def get_thml_content(s):
     ini_data = []
     soup = BeautifulSoup(s)
 
-    symbol = [',', '，', '、', '-', '——', '《', '(', '（', ':', '：', '。']
-    # >>> < type' list' >: [',', '\xef\xbc\x8c', '\xe3\x80\x81', '-', '\xe2\x80\x94\xe2\x80\x94', '\xe3\x80\x8a', '(','\xef\xbc\x88']
+    symbol = [',', '，', '、', '-', '——', '《', '(', '（', ':', '：', '。', ']', '}', '】', ':', '：']
+
 
     for s in soup.stripped_strings:
         block = str(s.encode('utf-8'))
@@ -16,7 +16,7 @@ def get_thml_content(s):
         flag = 0
         for end in symbol:
             if x.endswith(end):
-                # 一个汉字（包括汉字符号）在unicode中占3个字符
+                # 一个汉字（包括汉字符号）在unicode中占3个字符，没法用x[-1]的方式来获取结尾符号是什么
                 flag = 1
                 break
 

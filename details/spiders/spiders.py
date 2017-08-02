@@ -20,9 +20,7 @@ for data in datas:
     urls.append(data[2])
     p_name[data[2]]= [data[0], data[1]]
 
-fp = open('tmp/result.txt', 'w')
 tags = open('tmp/tags.txt', 'w')
-result = open('result/result.txt', 'w')
 
 
 class DSpider(scrapy.Spider):
@@ -50,8 +48,8 @@ class DSpider(scrapy.Spider):
 
 
         # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
-        data = remove_pas.FilterTag.strip_tags(clean_html)
-        # data = remove_bs.get_thml_content(clean_html)
+        # data = remove_pas.FilterTag.strip_tags(clean_html)
+        data = remove_bs.get_thml_content(clean_html)
         if data :
             # 获取对应专家的信息
             key = response.url
