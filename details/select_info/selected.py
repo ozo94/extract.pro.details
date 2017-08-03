@@ -27,8 +27,8 @@ def get_entitys(ch, en):
 def match_rule(rules, entitys, count):
 
     for rule in rules.keys():
-        if rule  in entitys:
-            if count[rule] <= rules[rule][0] and count[rule] >= rules[rule][1]:
+        if rule in entitys:
+            if count[rule] < rules[rule][0] or count[rule] > rules[rule][1]:
                 return False
         else:
             return False
@@ -41,7 +41,7 @@ def give_sentences(ch, en, career, fp):
     lines = []
     ch_lines = ch.readlines()
     en_lines = en.readlines()
-    rows = len(ch_lines)+1
+    rows = len(ch_lines)
 
     for i in range(rows):
         entitys, count = get_entitys(ch_lines[i], en_lines[i])
@@ -58,7 +58,7 @@ def give_sentences(ch, en, career, fp):
     flag = ''
     for line in lines:
         data = result_lines[line - 1]
-        print data
+        print data.strip('\n')
         tag = tags_lines[line - 1].split(' ')
         name = tag[0]
         college = tag[1]
@@ -66,29 +66,30 @@ def give_sentences(ch, en, career, fp):
 
         if flag == name:
             fp.write( data.strip('\n') + '。')
-            # print sentences
         else:
             flag = name
             fp.write('\n'+ flag+ ','+ college+','+ company+ ',')
-            sentences = ''
+
 
 
 
 if __name__ == "__main__":
     ch = open('../data/ch.txt', 'r')
     en = open('../data/en.txt', 'r')
+
     career_csv = open('../data/career.csv', 'w')
     contribute_csv = open('../data/contribute.csv', 'w')
     area_csv = open('../data/area.csv', 'w')
 
-    career = {'ORGANIZATION': [1,10], 'DATE': [1,2], 'TITLE':[1,3], 'PERSON': [0,1]}
+    career = {'ORGANIZATION': [1,10], 'DATE': [0,5], 'TITLE':[1,5], 'PERSON': [0,1]}
     contribute = {'ORGANIZATION': [1,10], 'ORDINAL':[0,2], 'DATE':[0,2], 'PERSON': [0,1]}
     article = {}
     area = {'O':[2,20]}
 
-    # give_sentences(ch, en, career, career_csv)
+    # 是否要注意次序，成果，生涯，领域要一次提取？
     give_sentences(ch, en, contribute, contribute_csv)
-    give_sentences(ch, en, area, area_csv)
+    # give_sentences(ch, en, career, career_csv)
+    # give_sentences(ch, en, area, area_csv)
 
 
 
