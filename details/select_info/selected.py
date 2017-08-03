@@ -27,13 +27,16 @@ def get_entitys(ch, en):
 def match_rule(rules, entitys, count):
 
     for rule in rules.keys():
+        # 包含规则内的实体，是否满足范围
         if rule in entitys:
             if count[rule] < rules[rule][0] or count[rule] > rules[rule][1]:
                 return False
+        # 规则内要求的实体不存在时，看看该实体能否为0
         else:
-            return False
+            if rules[rule][0] > 0:
+                return False
 
-        return True
+    return True
 
 
 # 中文，英文的词性分析在一起参考
@@ -82,7 +85,7 @@ if __name__ == "__main__":
     area_csv = open('../data/area.csv', 'w')
 
     career = {'ORGANIZATION': [1,10], 'DATE': [0,5], 'TITLE':[1,5], 'PERSON': [0,1]}
-    contribute = {'ORGANIZATION': [1,10], 'ORDINAL':[0,2], 'DATE':[0,2], 'PERSON': [0,1]}
+    contribute = {'ORGANIZATION': [1,10], 'ORDINAL':[0,2], 'DATE':[0,2], 'PERSON': [0,0], 'TITLE':[0,0]}
     article = {}
     area = {'O':[2,20]}
 
