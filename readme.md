@@ -9,9 +9,12 @@ https://stanfordnlp.github.io/CoreNLP/index.html
 
 ## 项目结构
 ![None](http://omouah54e.bkt.clouddn.com/CRWAL_PRO_DETAILS/1.PNG)
-
 ### 主体部分
 是scrpay爬虫部分（具体自行参考scrapy官方文档），爬取专家主页  
+**内容存储在根目录的tmp文件**   
+result.txt：逐行存储（一行为一个专家主页的所有内容）  
+tags.txt：对应专家的名字，学校，学院
+
 ### selected_mess  
 >主页内容处理，去除标签,主要有三种方法(beautifulsoup, htmlpaser, re正则匹配)  
   
