@@ -10,12 +10,18 @@ fp = pd.read_csv('details/data/zdh_TH.csv')
 
 
 URLS = []
+p_name = {}
 id = 0
 
 for data in fp.iterrows():
     name = data[1][3].replace(' ', '')
     url =  data[1][0]
+    college = data[1][1]
+    company = data[1][2]
+
     if not pd.isnull(url):
-        URLS.append([id,name,url])
+        URLS.append(url)
+        p_name[url] = [id, name, college, company]
         id = id + 1
         # print name, url
+

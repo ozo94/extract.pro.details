@@ -51,7 +51,7 @@ class FilterTag():
 
 if __name__ == '__main__':
     s = file('../../tmp/clean_html.html').read()
-    data = open('../data/result_pas.txt', 'w')
+    data = open('../test/result_pas.txt', 'w')
 
     code = get_code(s)
 

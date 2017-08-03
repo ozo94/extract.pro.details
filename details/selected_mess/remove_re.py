@@ -95,7 +95,7 @@ def repalce(s, re_exp, repl_string):
 
 if __name__ == '__main__':
     s = file('../../tmp/clean_html.html').read()
-    data = open('../data/result_re.txt', 'w')
+    data = open('../test/result_re.txt', 'w')
     result = filter_tags(s)
     print result
     data.write(result)

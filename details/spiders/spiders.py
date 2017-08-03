@@ -11,16 +11,11 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-
-datas = get_url.URLS
-p_name = {}
-urls = []
-
-for data in datas:
-    urls.append(data[2])
-    p_name[data[2]]= [data[0], data[1]]
-
+# 获得专家的名字，学校，学院，个人主页这四种信息
+urls = get_url.URLS
+p_name = get_url.p_name
 tags = open('tmp/tags.txt', 'w')
+result = open('tmp/result.txt', 'w')
 
 
 class DSpider(scrapy.Spider):
@@ -54,8 +49,8 @@ class DSpider(scrapy.Spider):
             # 获取对应专家的信息
             key = response.url
             str_data = data
-            fp.write(str_data + '\n')
-            tag_data = str(p_name[key][0]) + ';'+ p_name[key][1]
+            result.write(str_data + '\n')
+            tag_data = p_name[key][1]+ ';'+ p_name[key][2]+ ';'+ p_name[key][3]
             tags.write(tag_data + '\n')
 
 

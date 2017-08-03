@@ -1,266 +1,369 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- IE8 å…¼å®¹ -->
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<link rel="shortcut icon" type="image/x-icon" href="/public/icon/favicon.ico" />
-                                        <title>æ¸…åå¤§å­¦è‡ªåŠ¨åŒ–ç³»</title>
-<script src="/public/jquery/jquery-1.4.min.js" type="text/javascript"></script>
-<link href="/publish/au/css/common.css" rel="stylesheet" type="text/css" />
-<link href="/publish/au/css/grid.css" rel="stylesheet" type="text/css" /><link href="/publish/au/css/style_second.css" rel="stylesheet" type="text/css" />
-<script language="javascript" type="text/javascript">
-/*
-*æˆªå–ä¿¡æ¯ç®€ä»‹
-*summaryStr:String ä¿¡æ¯ç®€ä»‹
-*lengTh:int æˆªå–çš„é•¿åº¦
-*/
- function cutSummary(summaryStr,lengTh){
-   if(summaryStr.length>lengTh){
-     summaryStr=summaryStr.substring(0,lengTh)+"...";
-   }
-   document.write(summaryStr);
- }
-/*
-*jQuery:æ‰€æœ‰å¤–åŸŸé“¾æ¥åœ¨æ–°çª—å£æ‰“å¼€
-*/
-$(document).ready(function() {
- $("a[href*='http://']:not([href*='"+location.hostname+"']),[href*='https://']:not([href*='"+location.hostname+"'])")
- .addClass("external")
- .attr("target","_blank")
-});
-</script></head>
-<body>
-<!-- å¯¼å…¥å…¨å±€æ¨¡æ¿ -->
-<SCRIPT language="JavaScript" src="/public/plugin/source/global.js"></SCRIPT>
-<!-- å¯¼èˆªä¸‹æ‹‰èœå• -->
-<link type="text/css" rel="stylesheet" href="/public/plugin/source/nav/css/mt_dropdown.css" />
-
-<SCRIPT language="JavaScript" src="/public/plugin/source/nav/js/mt_dropdownc.min.js"></SCRIPT>
-
-<SCRIPT language="JavaScript" src="/public/plugin/source/nav/js/mt_dropdown_initialize.min.js"></SCRIPT>
-
-<script language="JavaScript">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>¹ÜÏşºê½ÌÊÚ</title>
+<style type="text/css">
 <!--
-
-function MM_openBrWindow(theURL,winName,features) { //v2.0
-
-  window.open(theURL,winName,features);
-
+.style1 {
+	font-size: 28px;
+	font-weight: bold;
 }
-$(document).ready(function(){
-
-  init();
-
-});
-
-//-->
-</script>
-
-
-<!-- å¯¼èˆªä¸‹æ‹‰èœå• --><SCRIPT language="JavaScript" src="/public/plugin/source/global_twain.js"></SCRIPT> <!-- æ•´ä½“åŒºåŸŸå¼€å§‹ -->
- <div class="wrapper nomalwclassth auto">
-    
-     <!-- é¡µå¤´åŒºåŸŸå¼€å§‹ -->
-       <!-- é¡µå¤´åŒºåŸŸå¼€å§‹ -->
-  <div class="header nomalwidth auto">
-      
-       <div class="logo_text">
-         <p class="cn">&nbsp;</p>
-            <p class="en">&nbsp;</p>
-        </div>
-        
-        <div class="hot_links"><a href="/publish/auen/index.html">English</a></div><p><img alt="" align="middle" width="960" height="126" src="/publish/au/984/20101201185105456860612/banner.jpg" /></p></div>
-  <!-- é¡µå¤´åŒºåŸŸç»“æŸ -->        <!-- é¡µå¤´åŒºåŸŸç»“æŸ -->
-        
-        <!-- nav start -->
-        <SCRIPT language="JavaScript">
-function initMenuData(){
-if (mtDropDown.isSupported()) {
-var ms = new mtDropDownSet(mtDropDown.direction.down, 0, 0, mtDropDown.reference.bottomLeft);
-var menu1066 = ms.addMenu(document.getElementById("menu_1066"));
-menu1066.addItem("æ¦‚å†µ","/publish/au/1068/index.html","");
-        menu1066.addItem("ç³»ä¸»ä»»è‡´è¾","/publish/au/1070/index.html","");
-        menu1066.addItem("å†ä»»ç³»é¢†å¯¼","/publish/au/1074/index.html","");
-        var subMenu1066_2 = menu1066.addMenu(menu1066.items[2]);
-       subMenu1066_2.addItem("å†å±Šç³»ä¸»ä»»","/publish/au/1074/index.html","");
-    subMenu1066_2.addItem("å†å±Šç³»å…šå§”ä¹¦è®°","/publish/au/1076/index.html","");
-      menu1066.addItem("ç³»å²","/publish/au/1083/index.html","");
-        var menu1086 = ms.addMenu(document.getElementById("menu_1086"));
-menu1086.addItem("è¡Œæ”¿æœºæ„","/publish/au/1088/index.html","");
-        menu1086.addItem("å­¦æœ¯å­¦ä½æ•™å­¦å§”å‘˜ä¼š","/publish/au/7052/index.html","");
-        menu1086.addItem("ç ”ç©¶æ‰€","/publish/au/1089/index.html","");
-        menu1086.addItem("å®éªŒå®¤","/publish/au/1090/index.html","");
-        menu1086.addItem("ç³»çº§äº¤å‰å­¦ç§‘ç ”ç©¶æœºæ„","/publish/au/1091/index.html","");
-        menu1086.addItem("ä¸“ä¸šå§”å‘˜ä¼š","/publish/au/7053/index.html","");
-        var menu1092 = ms.addMenu(document.getElementById("menu_1092"));
-menu1092.addItem("æ¦‚å†µ","/publish/au/1093/index.html","");
-        menu1092.addItem("åœ¨èŒæ•™å¸ˆ","/publish/au/1095/index.html","");
-        var subMenu1092_1 = menu1092.addMenu(menu1092.items[1]);
-       subMenu1092_1.addItem("æŒ‰å§“åæ‹¼éŸ³æ’åº","/publish/au/1095/index.html","");
-    subMenu1092_1.addItem("æŒ‰ç ”ç©¶æ‰€åˆ’åˆ†","/publish/au/1096/index.html","");
-      menu1092.addItem("ä¸¤é™¢é™¢å£«","/publish/au/1097/index.html","");
-        menu1092.addItem("æ•™å­¦åå¸ˆ","/publish/au/7054/index.html","");
-        menu1092.addItem("è®²å¸­æ•™æˆ","/publish/au/1098/index.html","");
-        menu1092.addItem("åƒäººè®¡åˆ’","/publish/au/1099/index.html","");
-        menu1092.addItem("é•¿æ±Ÿæ•™æˆ","/publish/au/1100/index.html","");
-        menu1092.addItem("æ°å‡ºé’å¹´","/publish/au/1101/index.html","");
-        menu1092.addItem("åˆ›æ–°ç¾¤ä½“","/publish/au/7055/index.html","");
-        menu1092.addItem("å…¼èŒæ•™æˆ","/publish/au/1102/index.html","");
-        menu1092.addItem("å®¢åº§æ•™æˆ","/publish/au/7056/index.html","");
-        menu1092.addItem("é¡¾é—®æ•™æˆ","/publish/au/1103/index.html","");
-        menu1092.addItem("å…¶å®ƒè·å¥–","/publish/au/1104/index.html","");
-        var menu1105 = ms.addMenu(document.getElementById("menu_1105"));
-menu1105.addItem("å­¦ç§‘æ–¹å‘","/publish/au/1106/index.html","");
-        menu1105.addItem("ç§‘ç ”æˆæœ","/publish/au/1108/index.html","");
-        menu1105.addItem("è®ºæ–‡ä¸“è‘—","/publish/au/1110/index.html","");
-        menu1105.addItem("é‡å¤§é¡¹ç›®","/publish/au/1113/index.html","");
-        menu1105.addItem("å­¦æœ¯äº¤æµ","/publish/au/1116/index.html","");
-        var menu1126 = ms.addMenu(document.getElementById("menu_1126"));
-menu1126.addItem("æœ¬ç§‘ä¸“ä¸š","/publish/au/6613/index.html","");
-        menu1126.addItem("æœ¬ç§‘æ•™å­¦","/publish/au/6614/index.html","");
-        menu1126.addItem("æœ¬ç§‘è¯¾ç¨‹","/publish/au/1130/index.html","");
-        var subMenu1126_2 = menu1126.addMenu(menu1126.items[2]);
-       subMenu1126_2.addItem("å­¦ç§‘åŸºç¡€è¯¾ç¨‹","/publish/au/1130/index.html","");
-    subMenu1126_2.addItem("ä¸“ä¸šæ ¸å¿ƒè¯¾ç¨‹","/publish/au/1132/index.html","");
-    subMenu1126_2.addItem("ä¸“ä¸šé™é€‰è¯¾ç¨‹","/publish/au/1135/index.html","");
-    subMenu1126_2.addItem("å®è·µä¸å®éªŒè¯¾ç¨‹","/publish/au/1137/index.html","");
-    subMenu1126_2.addItem("æ–°ç”Ÿç ”è®¨è¯¾å’Œé«˜å¹´çº§ç ”è®¨è¯¾","/publish/au/1139/index.html","");
-      menu1126.addItem("ç ”ç©¶ç”Ÿä¸“ä¸š","/publish/au/1144/index.html","");
-        menu1126.addItem("ç ”ç©¶ç”Ÿæ•™è‚²","/publish/au/1145/index.html","");
-        menu1126.addItem("ç ”ç©¶ç”Ÿè¯¾ç¨‹","/publish/au/1147/index.html","");
-        var subMenu1126_5 = menu1126.addMenu(menu1126.items[5]);
-       subMenu1126_5.addItem("åŸºç¡€ç†è®ºè¯¾","/publish/au/1147/index.html","");
-    subMenu1126_5.addItem("ä¸“ä¸šåŸºç¡€è¯¾","/publish/au/1148/index.html","");
-    subMenu1126_5.addItem("ä¸“ä¸šè¯¾","/publish/au/1149/index.html","");
-    subMenu1126_5.addItem("ä¸ºå¤–ç³»ç ”ç©¶ç”Ÿå¼€è®¾è¯¾ç¨‹","/publish/au/1150/index.html","");
-      var menu1151 = ms.addMenu(document.getElementById("menu_1151"));
-menu1151.addItem("æœ¬ç§‘æ‹›ç”Ÿ","/publish/au/1152/index.html","");
-        var subMenu1151_0 = menu1151.addMenu(menu1151.items[0]);
-       subMenu1151_0.addItem("ä¸“ä¸šä»‹ç»","/publish/au/9129/index.html","");
-    subMenu1151_0.addItem("åå¸ˆäº‘é›†","/publish/au/9130/index.html","");
-    subMenu1151_0.addItem("æœ¬ç§‘æ•™å­¦","/publish/au/9131/index.html","");
-    subMenu1151_0.addItem("å­¦ç§‘å»ºè®¾","/publish/au/9132/index.html","");
-    subMenu1151_0.addItem("æ ¡å›­ç”Ÿæ´»","/publish/au/9133/index.html","");
-    subMenu1151_0.addItem("å¥–åŠ©å­¦é‡‘","/publish/au/9134/index.html","");
-    subMenu1151_0.addItem("æ¯•ä¸šå»å‘","/publish/au/9135/index.html","");
-    subMenu1151_0.addItem("çŸ¥åç³»å‹","/publish/au/9136/index.html","");
-    subMenu1151_0.addItem("å­¦é•¿å¯„è¯­","/publish/au/9137/index.html","");
-    subMenu1151_0.addItem("è”ç³»æ–¹å¼","/publish/au/9138/index.html","");
-      menu1151.addItem("ç¡•å£«æ‹›ç”Ÿ","/publish/au/1153/index.html","");
-        menu1151.addItem("åšå£«æ‹›ç”Ÿ","/publish/au/1154/index.html","");
-        menu1151.addItem("å·¥ç¨‹ç¡•å£«æ‹›ç”Ÿ","/publish/au/1155/index.html","");
-        menu1151.addItem("åšå¯¼ä»‹ç»","/publish/au/1156/index.html","");
-        var menu1157 = ms.addMenu(document.getElementById("menu_1157"));
-menu1157.addItem("æ•™å¸ˆæ‹›è˜","/publish/au/1158/index.html","");
-        menu1157.addItem("åšå£«åæ‹›è˜","/publish/au/1159/index.html","");
-        menu1157.addItem("å…¶ä»–äººå‘˜æ‹›è˜","/publish/au/1160/index.html","");
-        
-mtDropDown.renderAll();
+body,td,th {
+	font-size: 14px;
+	text-align: justify;
 }
-} 
-</SCRIPT>
-          <!-- nav start -->
-          <div class="nav nomalwidth auto">
-             <ul>
-                <li><a href="/publish/au/index.html">é¦–é¡µ</a></li>
-                <li id="menu_1066"><a href="/publish/au/1068/index.html">è‡ªåŠ¨åŒ–ç³»ç®€ä»‹</a></li>
-                <li id="menu_1086"><a href="/publish/au/1088/index.html">æœºæ„è®¾ç½®</a></li>
-                <li id="menu_1092"><a href="/publish/au/1093/index.html">å¸ˆèµ„æƒ…å†µ</a></li>
-                <li id="menu_1105"><a href="/publish/au/1106/index.html">ç§‘å­¦ç ”ç©¶</a></li>
-                <li id="menu_1126"><a href="/publish/au/6613/index.html">æ•™åŠ¡æ•™å­¦</a></li>
-                <li id="menu_1151"><a href="/publish/au/1152/index.html">æ‹›ç”Ÿä¿¡æ¯</a></li>
-                <li id="menu_1157"><a href="/publish/au/1158/index.html">æ‹›è˜ä¿¡æ¯</a></li>
-                <li id="menu_1162"><a href="/publish/au/1162/index.html">å­¦ç”Ÿæ´»åŠ¨</a></li>
-                <li id="menu_1163"><a href="/publish/au/1163/index.html" class="clear">ç³»å‹ä¿¡æ¯</a></li>
-            </ul>
-        </div>
-        <!-- nav end -->
-<script language="JavaScript">initMenuData();</script>        <!-- nav end -->
-        
-        <!-- ä¸­éƒ¨åŒºåŸŸå¼€å§‹ -->
-        <div class="content auto">
-         
-            <!-- start -->
-            <table width="0" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td class="box_left">
-                 
-                    <!-- start -->
-                    <div class="s_menu">
-<p><img src="/publish/au/images/left_menu_pic.gif" width="200" height="76" /></p>
-                    </div>
-                    <!-- end -->
-                    
-                    <!-- start -->
-                    <div class="menu_bg_line"></div>
-                    <!-- end -->
-                    
-                    <!-- start -->
-                    <form id="searchForm" name="form1" method="post" action="#" target="_blank">
+.style2 {font-family: "Times New Roman", Times, serif}
+-->
+</style>
+</head>
 
-
-<input type="hidden" id="searchVpath" name="vpath" value=""/>
-<div class="search auto"><p class="left"><input name="Q" type="text" /></p><p class="right"><a href="javascript:document.form1.submit();" title="æœç´¢"></a></p></div>
-</form>                    <!-- end -->
-                    
-                    <!-- start -->
-                    <!-- start -->
-                    <div class="info_02 auto"><a href='http://100.tsinghua.edu.cn'><img width='190' height='67' src='/publish/au/images/100year_02.gif' /></a></div>
-                    <!-- end -->                    <!-- end -->
-                                                            
-                </td>
-                <td class="box_right">
-                 
-                    <!-- c_top start -->
-<!-- c_top start -->
-<div class="c_top">
-  <ul class="nav_01">
-    <li>&nbsp;æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š<A href="/publish/au/index.html" >é¦–é¡µ</a>&nbsp;&nbsp;&#8250;</li>
-    <li><A href="/publish/au/1093/index.html" >å¸ˆèµ„æƒ…å†µ</a>&nbsp;&nbsp;&#8250;</li>
-    <li><A>æ•™å¸ˆè¯¦ç»†ä¿¡æ¯</A></li>
-    <li style="width:470px; text-align:right;"><A href="javascript:history.go(-1);">è¿”&nbsp;&nbsp;å›</A></li>
+<body>
+<div style="width: 680px;">
+<a href="index.htm">English Version</a>
+<blockquote>
+<table border="0">
+  <tr>
+    <td width="32"><img src="gxh_s.jpg" alt="¹ÜÏşºê½ÌÊÚ" /></td>
+    <td width="356"><blockquote>
+  <p class="style1">¹ÜÏşºê</p>
+  <p><strong>ÏµÍ³¹¤³Ì³¤½­ÌØÆ¸½ÌÊÚ</strong> <br />
+  <strong>Çå»ª´óÑ§ÖÇÄÜÓëÍøÂç»¯ÏµÍ³ÑĞ¾¿ÖĞĞÄÖ÷ÈÎ</strong> <br />
+  </p>
+</blockquote></td>
+  </tr>
+</table>
+</blockquote>
+<blockquote>
+  <p>
+    µØÖ·£º ±±¾©ÊĞÇå»ª´óÑ§×Ô¶¯»¯Ïµ  100084<br />
+    µç»°£º +86 (10) 6279-2425<br />
+    ´«Õæ£º +86 (10) 6279-6155<br />
+    µç×ÓÓÊ¼ş£º<a href="mailto:xhguan@tsinghua.edu.cn">xhguan@tsinghua.edu.cn</a><br />
+    ÍøÒ³£º<a href="http://cfins.au.tsinghua.edu.cn/personalhg/xhguan">http://cfins.au.tsinghua.edu.cn/personalhg/xhguan</a> </p>
+</blockquote>
+<p><strong>½ÌÓı</strong></p>
+<blockquote>
+  <p> 1999Äê·ÃÎÊÃÀ¹ú¹ş·ğ´óÑ§¹¤³ÌÓëÓ¦ÓÃ¿ÆÑ§Ïµ<br />
+    1993Äê5ÔÂ»ñÃÀ¹ú¿µÄùµÒ¸ñ´óÑ§µç»úÓëÏµÍ³¹¤³ÌÏµ²©Ê¿Ñ§Î»<br />
+    1985Äê3ÔÂ»ñÇå»ª´óÑ§×Ô¶¯»¯Ïµ¹¤Ñ§Ë¶Ê¿Ñ§Î»<br />
+    1982Äê7ÔÂ»ñÇå»ª´óÑ§×Ô¶¯»¯Ïµ¹¤Ñ§Ñ§Ê¿Ñ§Î»</p>
+</blockquote>
+<p><strong>Ñ§ÊõÈÙÓşÓë»ñ½±</strong></p>
+<ul>
+  <li> 2009-£¬¿µÄùµÒ¸ñ´óÑ§½Ü³ö¹¤³ÌÊ¦Ôº </li>
+  <li> 2008Äê¶ÈIEEEÍ¨ĞÅÑ§»áÏµÍ³¼¯³ÉÓë½¨Ä£×î¼ÑÂÛÎÄ½± </li>
+  <li> 2008-£¬IEEE»úÆ÷ÈËÓë×Ô¶¯»¯Ñ§»á½Ü³ö½²×ùÈË </li>
+  <li> 2007-£¬IEEE Fellow </li>
+  <li> 2006Äê¶È¹ú¼Ò¿Æ¼¼½ø²½¶şµÈ½±£¨µÚÎåÍê³ÉÈË£© </li>
+  <li> 2005Äê¶È¹ú¼Ò×ÔÈ»¿ÆÑ§¶şµÈ½±£¨µÚÒ»Íê³ÉÈË£© </li>
+  <li> 2004Äê¶È½ÌÓı²¿×ÔÈ»¿ÆÑ§Ò»µÈ½±£¨µÚÒ»Íê³ÉÈË£© </li>
+  <li> 1997Äê¶È¹ú¼Ò½Ü³öÇàÄê»ù½ğ </li>
+  <li> 1996Äê¶ÈÃÀ¹úÀîÊÏ»ù½ğ½Ü³ö³É¾Í½±  </li>
+</ul>
+<p><strong>ÊÚÈ¨×¨Àû</strong></p>
+<ul>
+  <li>»ùÓÚÀ­ÊÏËÉ³ÚµÄÉú²úÏµÍ³Ğò¹áµ÷Õû¹¤ÒÕ·½·¨£¬ZL 02 1 14410.9£¨ÖĞ¹ú×¨Àû¾Ö£©</li>
+  <li>Òì³£ÎÄ¼ş·ÃÎÊ×ÔÊÊÓ¦¼ì²â·½·¨£¬ZL200410026264.0£¨ÖĞ¹ú×¨Àû¾Ö£©</li>
+  <li>Windows»·¾³ÏÂµÄÖ÷»úÈëÇÖ¼ì²â¼¼Êõ£¬ZL200510043053.2£¨ÖĞ¹ú×¨Àû¾Ö£©</li>
+  <li>Linux²Ù×÷ÏµÍ³ÏÂ»ùÓÚµ÷ÓÃÕ»Í¼ºÍ»¬¶¯´°¿ÚÒì³£¶ÈµÄÈëÇÖ¼ì²â·½·¨, ZL 200510042882.9£¨ÖĞ¹ú×¨Àû¾Ö£©</li>
+  <li>Ò»ÖÖ¼ÆËã»úÏµÍ³¿ìËÙ»¹Ô­µÄ·½·¨£¬ZL200610165587.7£¨ÖĞ¹ú×¨Àû¾Ö£©</li>
+  <li>»ùÓÚÊÕ·¢Æ½ºâµÄTCPÍøÂçÁ÷Á¿»Ø·Å²âÊÔ·½·¨£¬ZL200810018385.9£¨ÖĞ¹ú×¨Àû¾Ö£©</li>
+  <li>»ùÓÚ´«Êä²ãÌØÕ÷µÄP2PÍøÂçÁ÷Á¿Ê¶±ğ·½·¨£¬ZL200810018164.1£¨ÖĞ¹ú×¨Àû¾Ö£©</li>
   </ul>
+<p><strong>Ñ§Êõ¼æÖ°</strong></p>
+<ul>
+  <li><em>IEEE Transactions on Power Systems</em>±à¼­£¬2009 ¨C</li>
+  <li><strong><em>Automatica</em></strong>±àÎ¯£¬1999£­2011</li>
+  <li>¡¶¿ØÖÆÀíÂÛÓëÓ¦ÓÃ¡·±àÎ¯£¬2003£­</li>
+  <li>¡¶¾ö²ßÓë¿ØÖÆ¡·±àÎ¯£¬2000£­</li>
+  <li>½ÌÓı²¿¿ÆÑ§¼¼ÊõÎ¯Ô±»áÎ¯Ô±£¬2002£­</li>
+  <li>IEEE/ASME International  Conference on Advanced Intelligent Mechatronics´ó»áĞ­Ö÷Ï¯, ÖĞ¹úÎ÷°²£¬2008Äê7ÔÂ2-5ÈÕ</li>
+  <li>IEEE Conference on Automation  Science and Engineering³ÌĞòÎ¯Ô±»áĞ­Ö÷Ï¯, Scottsdale, AZ, USA, 2007Äê9ÔÂ22£­25 </li>
+  <li>International Symposium on  Intelligent and Networked Systems´ó»áÖ÷Ï¯, ÖĞ¹ú±±¾©¡¢Î÷°², 2004Äê10ÔÂ11£­14ÈÕ</li>
+  <li>The 42nd IEEE Conference on  Decision and Control³ÌĞòÎ¯Ô±»áÎ¯Ô±, Bahamas Island, 2004Äê12ÔÂ14£­17ÈÕ</li>
+  <li>World Congress on Intelligent  Control and AutomationÖ¸µ¼Î¯Ô±»á¡¢³ÌĞòÎ¯Ô±»áÎ¯Ô±, 1997, 2000, 2002, 2005, 2006, 2008, 2010, 2011</li>
+  </ul>
+<p><strong>¹ú¼Ê»áÒé´ó»á±¨¸æºÍÑûÇë±¨¸æ</strong></p>
+<ul>
+  <li>ÌØÑû±¨¸æ, the 4th Chinese-Swedish Conference on Control, Hong Kong, China,? Jan 10-11, 2008: Optimization Based Method  for Solving Routing and Wavelength </li>
+  <li>´ó»á±¨¸æ (IFIP International Conference on Research and Practical Issues of  Enterprise Information Systems, Beijing, China, 2007)£ºOptimization Based Production  Scheduling for Large Enterprises? </li>
+  <li>ÌØÑû±¨¸æ (the International Conference on Frontier Problems in Systems and  Control, Beijing, China, 2007): Energy-Efficient Sensing Coverage and  Communication for Wireless Sensor Networks</li>
+  <li>ÌØÑû±¨¸æ (European Science Foundation Exploratory Workshop on ¡°Mathematical  Models for Electricity Markets,¡± Ciudad Real, Spain, 2006)£ºOptimization Based Method for  Generation Portfolio Management in Futures and Spot market </li>
+  <li>´ó»á±¨¸æ (the North America Power Symposium, MIT, MA, USA, November, 1996)£ºOptimization-Based Scheduling of  Cascaded Hydro Power Systems with Discrete Constraints</li>
+  </ul>
+<p><strong>Ä¿Ç°ÑĞ¾¿·½Ïò</strong></p>
+<ul>
+  <li>¸´ÔÓÍøÂç»¯ÏµÍ³µÄ°²È«Óë¾­¼ÃĞÔ£»</li>
+  <li>Éú²úÖÆÔìÏµÍ³µÄÓÅ»¯µ÷¶È£»</li>
+  <li>ÊĞ³¡¾º±êºÍ¶Ô²ß·½·¨ÑĞ¾¿¡¢µçÁ¦ÊĞ³¡·ÂÕæºÍÔ¤²â</li>
+  <li>ĞÅÏ¢ÎïÀíÈÚºÏÏµÍ³¡¢ÖÇÄÜµçÍø¡¢´«¸ĞÆ÷ÍøÂç¡¢ÍøÂç°²È«£»</li>
+  </ul>
+<p><strong>Ö÷Òª×ÊÖú</strong></p>
+<ul>
+  <li>¹ú¼Ò½Ü³öÇàÄê»ù½ğ£¬</li>
+  <li>¹ú¼Ò×ÔÈ»¿ÆÑ§»ù½ğÖØµãÏîÄ¿¡¢ÃæÉÏÏîÄ¿¡¢´´ĞÂÈºÌå</li>
+  <li>¹ú¼Ò863¼Æ»®</li>
+  <li>½ÌÓı²¿ÖØµãÏîÄ¿¡¢³¤½­Ñ§Õß´´ĞÂÍÅ¶Ó¡¢¡°985¼Æ»®¡±¡¢¡°211¼Æ»®¡± </li>
+  <li>±¦¸Ö¼¯ÍÅ¹«Ë¾ </li>
+  <li>¹ú¼ÒµçÍøÎ÷±±¹«Ë¾ </li>
+  <li>ÃÀ¹úÁªºÏ¼¼Êõ¹«Ë¾£¨UTC£© </li>
+  </ul>
+<p><strong>¹ú¼ÊÓëµØÇøºÏ×÷</strong></p>
+<ul>
+  <li>¹ş·ğ´óÑ§ (Harvard University)£¬</li>
+  <li>²®¿ËÀû¼ÓÖİ´óÑ§£¨University of California  Berkeley£©</li>
+  <li>ÂíÈûÖîÈø´óÑ§ (University of Massachusetts)£¬</li>
+  <li>¿µÄùµÒ¸ñ´óÑ§ (University of Connecticut)£¬</li>
+  <li>Ïã¸ÛÖĞÎÄ´óÑ§ (Chinese University of Hong  Kong)£¬</li>
+  <li>Ïã¸Û¿Æ¼¼´óÑ§ (Hong Kong University of Science and Technology) </li>
+</ul>
+<p><strong>ÂÛÖøÑ¡</strong></p>
+<table width="680" border="0">
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[1] </div></td>
+    <td valign="top">X. Guan, P. B. Luh, E. Ni and R.    Li, &quot;Hydrothermal Power Systems,&quot; Encyclopedia    of Electrical and Electronics Engineering, John    Wiley and Son, 1999, pp. 419-627</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[2] </div></td>
+    <td valign="top">X. Guan, E. Ni, P. B. Luh and Y. C. Ho, &ldquo;Optimization Based    Bidding Strategies and Gaming Analysis for Deregulated Electric Power    Market,&rdquo; Next Generation of Unit Commitment Models, Series on Operations    Research/Management Science, Kluwer Academic    Publishers, 2001.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[3] </div></td>
+    <td valign="top">Yu-Chi Ho, Xiaohong Guan, Xi-Ren Cao, Weibo Gong, Peter B.    Luh, Houmin Yan, Some Useful Information for Scholars New    to the World of Science, Tsinghua University Press    / Springer-Verlag, 2004</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[4] </div></td>
+    <td valign="top">X. Guan, Y. Zhou, Q. Zheng, Q. Sun and J. Zhao, &ldquo;Dynamic Model    and Analysis for Information Propagation in Online Social Networks,&rdquo; Social-Technical Networks: Science and Engineering Design, CRC Press/Taylor and Francis Group, 2011</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[5] </div></td>
+    <td valign="top">X. Guan, P. B. Luh, H. Yan and J. A. Amalfi, &quot;An    optimization Based Method for Unit Commitment,&quot; International    Journal of Electrical Power &amp; Energy Systems,    Vol. 14, No. 1, Feb. 1992, pp. 9-17.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[6] </div></td>
+    <td valign="top">X. Guan and P. B. Luh, &quot;A New Parallel Algorithm for    Optimal Control Problems of Interconnected Systems,&quot; International    Journal of Control, Vol. 56, No. 6, Dec. 1992, pp.    1275-1297.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[7] </div></td>
+    <td valign="top">H. Yan, P. B. Luh, X. Guan, and P. Rogan, &quot;Scheduling    Hydrothermal Power Systems,&quot; IEEE Transactions on    Power systems, Vol. 8, No. 3, August, 1993, pp.    1358-1365</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[8] </div></td>
+    <td valign="top">X. Guan, P. B. Luh, H. Yan and P. Rogan,    &quot;Optimization-Based Scheduling of Hydrothermal Power Systems with    Pumped-Storage Units,&quot; IEEE Transactions on Power    systems, Vol. 9, No. 2, May 1994, pp. 1023-1031.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[9] </div></td>
+    <td valign="top">L. Zhang, P. B. Luh, X. Guan, and G. Merchel,    &quot;Optimization-Based Inter-Utility Power Purchases,&quot; IEEE Transactions on Power systems,    Vol. 9, No. 2, May 1994, pp. 891-897.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[10] </div></td>
+    <td valign="top">X. Guan, P. B. Luh and L. Zhang, &quot;Nonlinear Approximation    Method in Lagrangian Relaxation-Based Algorithms for Hydrothermal    Scheduling,&quot; IEEE Transactions on Power Systems, Vol. 10, No. 2, May 1995, pp. 772-778.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[11] </div></td>
+    <td valign="top">X. Guan, E. Liu and A. D. Papalexopoulos, &quot;Applications    of a Fuzzy Set Method in an Optimal Power Flow,&quot; Electric    Power Systems Research, Vol. 34, No. 1, 1995, pp.    11-18.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[12] </div></td>
+    <td valign="top">E. Liu and X. Guan, &quot;Fuzzy Constraint Enforcement and    Control Curtailment in an Optimal Power Flow,&quot; IEEE    Transactions on Power Systems, Vol. 11, No. 2, May    1996, pp. 639-645</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[13] </div></td>
+    <td valign="top">X. Guan, P. B. Luh and B. Prasannan, &quot;Power System    Scheduling with Fuzzy Reserve Requirements,&quot; IEEE    Transactions on Power Systems, Vol. 11, No. 2, May    1996, pp. 864-869</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[14] </div></td>
+    <td valign="top">X. Guan, E. Ni, R. Li and P. B. Luh, &quot;An    Optimization-Based Scheduling Algorithm for Scheduling Hydrothermal Power    Systems with Cascaded Reservoirs and Discrete Hydro Constraints.&quot; IEEE Transactions on Power Systems,    Vol. 12, No. 4, Nov. 1997, pp.1775-1780</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[15] </div></td>
+    <td valign="top">C. Tseng, X. Guan and A. Svoboda, &quot;Multi-Area Unit    Commitment for Large-Scale Power Systems,&quot; IEE    Proceedings, Part C-Generation, Transmission and Distribution, Vol. 145, No. 4, July 1998, pp. 415-421</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[16] </div></td>
+    <td valign="top">X. Guan, A. Svoboda, and C. Li, &quot;Scheduling Hydro Power    Systems with Restricted Operating Zones and Discharge Ramping    Constraints,&quot; IEEE Transactions on Power Systems, Vol. 14, No.1, Feb. 1999, pp. 126-131</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[17] </div></td>
+    <td valign="top">C. Li, A. Svoboda, X. Guan and H. Singh, &quot;Revenue    Adequate Bidding Strategies in Competitive Electricity Markets,&quot; IEEE Transactions on Power Systems,    Vol. 14, No.2, May 1999, pp. 492. 497</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[18] </div></td>
+    <td valign="top">E. Ni, X. Guan and R. Li, &quot;Scheduling Hydrothermal Power    Systems with Cascaded and Head-dependent Reservoirs,&quot; IEEE    Transactions on Power Systems, Vol. 14, No.3,    August 1999, pp. 1127-1132.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[19] </div></td>
+    <td valign="top">X. Guan and P. Luh, &ldquo;Integrated Resource Scheduling and    Bidding in Deregulated Electric Power Market: New Challenges,&rdquo; Journal of Discrete Event Dynamic Systems, Vol. 9, No. 4, 1999, pp. 331-350</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[20] </div></td>
+    <td valign="top">X. Guan, F. Gao and Alva Svoboda, &ldquo;Energy Delivery Capacity    and Generation Scheduling in the Deregulated Electric Power Market,&rdquo; IEEE Transactions on Power Systems,    Vol. 15, No. 4, Nov 2000, pp. 1275-1280.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[21] </div></td>
+    <td valign="top">X. Guan, Y. C. Ho and D. Pepyne, &ldquo;Gaming and Price Spikes in    Electrical Power Market,&rdquo; IEEE Transactions on Power    Systems, Vol. 16, No. 3, Aug 2001, pp. 402-408.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[22] </div></td>
+    <td valign="top">X. Guan, Y. C. Ho and F. Lai &ldquo;An Ordinal Optimization Based    Bidding Strategy for Electric Power Suppliers in the Daily Electric Energy    Market,&rdquo; IEEE Transactions on Power Systems, Vol. 16, No. 4, Nov 2001, pp. 788-797.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[23] </div></td>
+    <td valign="top">X. Guan, Q. Zhai and F. Lai, &ldquo;A New Lagrangian Relaxation    Based Algorithm for Resource Scheduling with Homogenous Subproblems,&rdquo; Journal of Optimization: Theory and Applications, Vol. 113, No. 1, April 2002, pp. 65-82.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[24] </div></td>
+    <td valign="top">W. Fan, X. Guan, Q. Zhai, &ldquo;A New Method for Unit Commitment    with Ramping Constraints,&rdquo; Electric Power Systems    Research, Vol. 63, No. 3, 2002, pp. 215-224</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[25] </div></td>
+    <td valign="top">Q. Zhai, X. Guan and J. Cui, &ldquo;Unit Commitment with Identical    Units: Successive Subproblem Solving Method Based on Lagrangian Relaxation, IEEE Transactions on Power Systems,    Vol. 17, No. 4, Nov 2002, pp. 1250-1257</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[26] </div></td>
+    <td valign="top">Y. Liu and X. Guan, &ldquo;Purchase Allocation and Demand Bidding in    Electric Power Markets,&rdquo; IEEE Transactions on Power    Systems, vol. 18, no. 1, Feb 2003, pp. 106-112.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[27] </div></td>
+    <td valign="top">Z. Cai, X. Guan, P. Shao, Q. Peng, G. Sun, &ldquo;A Rough Set Theory    Based Method for Anomaly Intrusion Detection in Computer Networks,&rdquo; Expert Systems, vol. 18, no. 5, Nov    2003, pp.251-259.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[28] </div></td>
+    <td valign="top">L. Feng, X. Guan, S. Guo, Y. Gao,    &ldquo;Application of Plan Recognition Method for Predicting the Intentions of    Computer Network Intruders,&rdquo; Computer and Security, vol. 23, no. 3, 2004, pp 241-252.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[29] </div></td>
+    <td valign="top">X. Chen, Q. Zheng, X. Guan, C. Lin and    J. Sun, &ldquo;Multiple Behavior Information Fusion Based Quantitative Threat    Evaluation,&rdquo; Computer and Security, vol. 24, no. 3, 2005, pp. 218-231&nbsp;</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[30] </div></td>
+    <td valign="top">C. Song, X. Guan, Q. Zhao, Y. C. Ho    &ldquo;Machine Learning Approach for Determining Feasible Schedules of a    Remanufacturing System,&rdquo; IEEE Transactions on Automation    Science and Engineering, vol. 2, no. 3, July 2005,    pp. 262-275</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[31] </div></td>
+    <td valign="top">X. Guan, S. Guo and Q. Zhai, &ldquo;The    Conditions for Obtaining Feasible Solutions to Security Constrained Unit    Commitment Problems,&rdquo; IEEE Transactions on Power Systems, vol. 29, no. 4, Nov 2005&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[32] </div></td>
+    <td valign="top">X. Guan, C. Song, Y. C. Ho, Q. Zhao,    &ldquo;Constrained Ordinal Optimization&mdash; A Feasibility Model Based Approach,&rdquo; Discrete Event Dynamic Systems, vol.    16, no. 2, 2006, pp. 279-299</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[33] </div></td>
+    <td valign="top">W. Wang, X. Guan, X. Zhang, L. Yang,    &ldquo;Profiling program behaviors for anomaly intrusion detection based on the    transition and frequency property of system call data,&rdquo; Computer    and Security, vol. 25, no. 7, 2005, pp.539-550</td>
+  </tr>
+  <tr height="21">
+    <td height="21" valign="top"><div align="center">[34] </div></td>
+    <td valign="top">J. Liang and X. Guan, &ldquo;A Virtual Disk Environment for    Providing File System Recovery,&rdquo; Computer and Security, vol. 25, no. 8, 2006, pp.589-599</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[35] </div></td>
+    <td valign="top">X. Chen, Q. Zhao and X. Guan, &ldquo;Energy    Efficient Sensing Coverage and Communication for Wireless Sensor Networks,&rdquo; Journal of Systems Science and Complexity, vol. 20, no. 2, 2007, pp. 225-234</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[36] </div></td>
+    <td valign="top">X. Guan, S. Guo, Q. Zhai, W. Gong and C. Qiao, &ldquo;A New Method    for Solving Routing and Wavelength Assignment Problems in Optical Networks,&rdquo; IEEE/OSA Journal of Lightwave Technology, vol. 25, no. 8, 2007, pp. 1895-1909</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[37] </div></td>
+    <td valign="top">W. Wang, X. Guan, X. Zhang,    &ldquo;Processing of Massive Audit Data Streams for Real-Time Anomaly Intrusion    Detection,&rdquo; Computer Communications, vol. 31, no. 1, 2008, pp. 57-72.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[38] </div></td>
+    <td valign="top">X. Guan, J. Wu, F. Gao and G. Sun,    &ldquo;Optimization Based Generation Asset Allocation for Forward and Spot    Markets,&rdquo; IEEE Transactions on Power Systems, vol. 23, no. 4, November 2008, pp. 1796-1808</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[39] </div></td>
+    <td valign="top">X. Guan, W. Wang and X. Zhang, &ldquo;Fast    Intrusion Detection Based on a Non-negative Matrix Factorization Model,&rdquo; Journal of Network and Computer Applications, vol. 32. no. 1, Jan. 2009, pp. 31-44</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[40] </div></td>
+    <td valign="top">T. Liu, X. Guan, Q. Zheng and Y. Qu,    &ldquo;A New Worm Exploiting IPv6 and IPv4-IPv6 Dual-stack Networks: Experiment,    Modeling, Simulation and Defense,&rdquo; IEEE Network, vol. 23, no. 5, 2009, pp 22-29</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[41]</div></td>
+    <td valign="top">Q. Zhai, X. Guan, J. Yang, &ldquo;Fast Unit Commitment Based on    Optimal Linear Approximation to Nonlinear Fuel Cost: Error Analysis and    Applications,&rdquo; Electric Power Systems Research, vol. 79, no. 11, Nov. 2009,    pp. 1604-1613</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[42] </div></td>
+    <td valign="top">X. Guan, Q. Zhai, Y. Feng and F. Gao, &ldquo;Optimization Based    Scheduling for a Class of Production Systems with Integral Constraints,&rdquo; Science in China, E-Technological Sciences, vol. 52,    no. 12, 2009, pp. 3533-3544</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[43] </div></td>
+    <td valign="top">W. Wang, X. Guan, B. Wang and Y. Wang,    &ldquo;A Novel Mobility Model Based on Semi-random Circular Movement in Mobile Ad    Hoc Networks,&rdquo; Information Sciences, vol. 180, no. 3, Feb. 2010, pp. 399&ndash;413&nbsp;</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[44] </div></td>
+    <td valign="top">Y. Zhao, C. Yan, Q. Zhao, N. Huang, J.    Li, X. Guan, &ldquo;Efficient Simulation Method for General Assembly Systems with    Material handling Based on Aggregated Event-Scheduling, IEEE    Transactions on Automation Science and Engineering,    vol. 7, no. 4, Oct. 2010, pp. 762-775</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[45] </div></td>
+    <td valign="top">Y. Zhao, X. Chen, Q. Jia, X. Guan, S.    Zhang, and Y. Jiang, &ldquo;Long-term Scheduling for Cascaded Hydro Energy Systems    with Annual Water Consumption and Release Constraints,&rdquo; IEEE    Transactions on Automation Science and Engineering,    vol. 7, no. 4, Oct. 2010, pp. 969-976</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[46] </div></td>
+    <td valign="top">Q. Zhai, X. Guan, J. Cheng, H. Wu,    &ldquo;Fast Identification of Inactive Security Constraints in SCUC Problems,&rdquo; IEEE Transactions on Power Systems,    vol. 25, no. 4, Nov. 2010, pp. 1946-1954</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[47] </div></td>
+    <td valign="top">Y. Zhou, X. Guan, Q. Zheng, Q. Sun, J.    Zhao, &ldquo;Group Dynamics in Discussing Incidental Topics over Online Social    Networks,&rdquo; IEEE Network, vol.    24, no. 6, Nov. 2010, pp 42-27</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[48] </div></td>
+    <td valign="top">X. Guan, T. Qin, W. Li. P. Wang,    &ldquo;Dynamic Feature Analysis and Measurement for Large-Scale Network Traffic    Monitoring,&rdquo; IEEE Transactions on Information Forensics    and Security, vol. 5, no. 4, Dec. 2010, pp.    905-919</td>
+  </tr>
+  <tr height="21">
+    <td height="21" valign="top"><div align="center">[49] </div></td>
+    <td valign="top">X. Guan, Z. Xu and Q. Jia, &ldquo;Energy    Efficient Buildings Facilitated by Microgrid,&rdquo; IEEE    Transactions on Smart Grid, vol. 1, no. 3, Dec.    2010, pp. 243-252</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[50] </div></td>
+    <td valign="top">Q. Zhai, X. Guan and F. Gao,    &ldquo;Optimization Based Production Scheduling with Hybrid Dynamics and    Constraints,&rdquo; IEEE Transactions on Automatic Control, vol. 55, no. 12, Dec 2010, pp. 2778-2792</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[51] </div></td>
+    <td valign="top">X. Li, Q. Zhao, X. Guan and L. Tong,    &ldquo;Optimal Cognitive Access of Markovian Channels under Tight Collision    Constraints,&rdquo; IEEE Journal on Selected Areas in    Communication, vol. 29, no. 4, April 2011,    pp.746-756&nbsp;</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[52] </div></td>
+    <td valign="top">P. Wang, X. Guan, T. Qin and Q. Huang,    &ldquo;A Data Streaming Method for Monitoring Host Connection Degrees of High Speed    Links,&rdquo; IEEE Transactions on Information Forensics and    Security, vol. 6, no. 3, Sept. 2011, pp. 1086-1098</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[53] </div></td>
+    <td valign="top">T. Qin, X. Guan, W. Li, P. Wang, Q.    Huang, &ldquo;Monitoring Abnormal Network Traffic Based on Blind Source Separation    Approach,&rdquo; Journal of Network and Computer Applications, vol. 34, no. 5, Sept. 2011, pp. 1732-1742</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[54] </div></td>
+    <td valign="top">J. Li, Q. Jia, X. Guan, X. Chen,    &ldquo;Tracking a Moving Object via a Sensor Network with a Partial Information    Broadcasting Scheme,&rdquo; Information Sciences, vol. 181, no. 20, Oct. 2011, pp. 4733&ndash;4753&nbsp;</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[55] </div></td>
+    <td valign="top">Y. Han, X. Guan, L. Shi, &ldquo;Optimization    Based Method for Supply Location Selection and Routing in Large Scale    Emergency Material Delivery,&rdquo; IEEE Transactions on    Automation Science and Engineering, vol. 8, no. 4,    Oct. 2011, pp. 683-693.</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[56] </div></td>
+    <td valign="top">W. Wu, J. Wei, X. Guan and L. Shi, &ldquo;A Hybrid Nested Partitions    Algorithm for Scheduling Flexible Resource in Flow Shop Problem,&rdquo; to appear    in International Journal of Production Research</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[57] </div></td>
+    <td valign="top">H. Wu, X. Guan, Q. Zhai and H. Ye, &ldquo;A    Systematic Method for Constructing Feasible Solution to SCUC Problem with    Analytical Feasibility Conditions,&rdquo; to appear in IEEE    Transactions on Power Systems</td>
+  </tr>
+  <tr height="42">
+    <td height="42" valign="top"><div align="center">[58] </div></td>
+    <td valign="top">B. Zhang, X. Guan, M. J. Khan, Z.    Zhang, Y. Zhou, &ldquo;Time-varying Dynamic Propagation Model of Hot Topics on    BBSes and Blogs,&rdquo; to appear in Information Sciences</td>
+  </tr>
+  <tr height="63">
+    <td height="63" valign="top"><div align="center">[59] </div></td>
+    <td valign="top">Q. Zheng, T. Liu, X. Guan, Y. Qu, N.    Wang, &ldquo;A New Worm Exploiting IPv4-IPv6 Dual-stack Networks,&rdquo; Proceeding of the 5th ACM Workshop on Recurring Malcode (WORM 2007) in association with the 14th ACM Conference on    Computer and Communications Security (CCS), November 2, 2007, Alexandria,    Virginia, USA</td>
+  </tr>
+  <tr height="63">
+    <td height="63" valign="top"><div align="center">[60] </div></td>
+    <td valign="top">T. Qin, X. Guan, W. Li and P. Wang,    &ldquo;Dynamic Features Measurement and Analysis for Large-Scale Networks,&rdquo; Proceedings of IEEE International Workshop on Computer-Aided    Modeling, Analysis and Design of Communication Links and Networks (with International Communication Conference), Beijing, China,    May 23 2008 (<strong>Winner of the only Best Paper Award</strong>)</td>
+  </tr>
+</table>
+
+<hr align="left" width="680" size="1" />
+<div align="right"><em>×î½üĞŞ¸Ä£º2011-12-05</em></div>
 </div>
-<!-- c_bottom end -->                    <!-- c_bottom end -->
-                    <!-- start -->
-                <!--s2_right_conå¼€å§‹å¤„-->
-                      <div id="s2_right_con">
-<img src="/publish/au/1714/20111230132729575445941/20121218162010519905565.jpg" />
-<p>å¤ä¿ å‰¯æ•™æˆ</p><p>æ™ºèƒ½ä¸ç½‘ç»œåŒ–ç³»ç»Ÿç ”ç©¶ä¸­å¿ƒ</p><p>é€šä¿¡åœ°å€ï¼šåŒ—äº¬æ¸…åå¤§å­¦è‡ªåŠ¨åŒ–ç³»&nbsp; é‚®æ”¿ç¼–ç ï¼š100084<br/>è”ç³»ç”µè¯ï¼š010-62793029&nbsp; ä¼ çœŸï¼š010-62796115<br/>Emailï¼š <a href="mailto:xial@tsinghua.edu.cn">xial@tsinghua.edu.cn</a> </p>
-                        <h4>æ•™è‚²èƒŒæ™¯</h4>
-<p>2002å¹´9æœˆ-2007å¹´7æœˆ æ¸…åå¤§å­¦è‡ªåŠ¨åŒ–ç³»æ§åˆ¶ç§‘å­¦ä¸å·¥ç¨‹ä¸“ä¸šè·å¾—åšå£«å­¦ä½</p><p>1998å¹´9æœˆ-2002å¹´7æœˆ æ¸…åå¤§å­¦è‡ªåŠ¨åŒ–ç³»æœ¬ç§‘æ¯•ä¸š</p>
-                        <h4>å·¥ä½œå±¥å†</h4>
-<p>2005å¹´1æœˆ-2005å¹´9æœˆ 2006å¹´7æœˆ-2007å¹´1æœˆ åŠ©ç ”, é¦™æ¸¯ç§‘æŠ€å¤§å­¦</p><p>2007å¹´7æœˆ-2009å¹´10æœˆ IBMä¸­å›½ç ”ç©¶é™¢ï¼Œç ”ç©¶å‘˜</p><p>2009å¹´11æœˆ-2011å¹´11æœˆ é˜¿åœæœæ‹‰å›½ç‹ç§‘æŠ€å¤§å­¦, æ²™ç‰¹, åšå£«å</p><p>2010å¹´4æœˆ-2010å¹´5æœˆ è®¿é—®å­¦è€…, é¦™æ¸¯ç§‘æŠ€å¤§å­¦</p><p>2010å¹´7æœˆ-2010å¹´æœˆ è®¿é—®å­¦è€…, æ»‘é“å¢å¤§å­¦, åŠ æ‹¿å¤§</p><p>2015å¹´3æœˆ-2015å¹´æœˆ è®¿é—®å­¦è€…ï¼Œæ–¯å¦ç¦å¤§å­¦ï¼Œç¾å›½</p><p>2011å¹´12æœˆ-2013å¹´11æœˆ æ¸…åå¤§å­¦è‡ªåŠ¨åŒ–ç³»ï¼Œè®²å¸ˆ</p><p>2013å¹´12æœˆ-è‡³ä»Š æ¸…åå¤§å­¦è‡ªåŠ¨åŒ–ç³»ï¼Œå‰¯æ•™æˆ</p>
-                        <h4>å­¦æœ¯å…¼èŒ</h4>
-<p>IEEE é«˜çº§ä¼šå‘˜ï¼Œè‡ª2016èµ·;&nbsp; ä¸­å›½è¿ç­¹å­¦å­¦ä¼šä¼šå‘˜ï¼Œè‡ª2012å¹´èµ·.</p><p>å®¢åº§ç¼–è¾‘ï¼šInternational Journal of Simulation and Process Modelling</p><p>ç¼–å§”ï¼šCEB of IEEE CSS (IEEE CDC, ACC), IEEE CASEâ€™2016, IEEE CASEâ€™2015</p><p>å›½é™…ä¼šè®®ç¨‹åºå§”å‘˜ï¼šWODESâ€™2016, SIMULTECHâ€™2016,&nbsp; SIMULTECHâ€™2015, CCCâ€™2015, CCCâ€™2016, CCCâ€™2014, IEEE ROBIOâ€™2015, IEEE ROBIOâ€™2014, IEEE ICNSCâ€™2014</p><p>å®¡ç¨¿äººï¼šIEEE Transactions on Automatic Control, IEEE Transactions on Automation Science and Engineering, IIE Transactions, European Journal of Operational Research, Discrete Event Dynamic Systems, Performance Evaluation, Journal of Optimization Theory and Applications, è‡ªåŠ¨åŒ–å­¦æŠ¥ç­‰</p>
-                        <h4>ç ”ç©¶é¢†åŸŸ</h4>
-<p>1.ç†è®ºç ”ç©¶ï¼š<br/>éšæœºä¼˜åŒ–ã€æ’é˜Ÿè®ºã€é©¬å°”å¯å¤«å†³ç­–è¿‡ç¨‹ã€å¼ºåŒ–å­¦ä¹ </p><p>2.å·¥ç¨‹åº”ç”¨ï¼š<br/>å»ºç­‘èŠ‚èƒ½; èƒ½æºäº’è”ç½‘; å·¥ä¸šæ™ºèƒ½; ç‰©è”ç½‘</p>
-                        <h4>ç ”ç©¶æ¦‚å†µ</h4>
-<p><strong>è´Ÿè´£çš„ç§‘ç ”é¡¹ç›®ï¼š</strong><br/>[1]2016å¹´-2019å¹´ åŸºäºå…¬å¹³æŒ‡æ ‡çš„æ’é˜Ÿç³»ç»Ÿä¼˜åŒ–ç†è®ºåŠåº”ç”¨ï¼ˆå›½å®¶è‡ªç„¶ç§‘å­¦åŸºé‡‘é¢ä¸Šé¡¹ç›®ï¼‰</p><p>[2]2013å¹´-2015å¹´ åŸºäºå·®åˆ†çµæ•åº¦ä¿¡æ¯çš„æ’é˜Ÿç³»ç»Ÿæ€§èƒ½ä¼˜åŒ–ï¼ˆå›½å®¶è‡ªç„¶ç§‘å­¦åŸºé‡‘é’å¹´é¡¹ç›®ï¼‰</p><p>[3]2013å¹´-2015å¹´ ä¸€ç§åŸºäºæ€§èƒ½åŠ¿çš„æ’é˜Ÿæ¨¡å‹ä¼˜åŒ–æ–¹æ³•åŠåšå¼ˆåˆ†æï¼ˆæ•™è‚²éƒ¨åšå£«ç‚¹æ–°æ•™å¸ˆåŸºé‡‘ï¼‰</p><p>[4]2010å¹´ æ— çº¿ç½‘ç»œæ•°æ®ä¼ è¾“çš„èƒ½è€—ä¸å»¶è¿Ÿä¼˜åŒ–ï¼ˆé˜¿åœæœæ‹‰å›½ç‹ç§‘æŠ€å¤§å­¦åˆä½œç ”ç©¶åŸºé‡‘ï¼‰</p><p><br/><strong>å‚ä¸çš„ç§‘ç ”é¡¹ç›®ï¼š</strong><br/>[1]2016å¹´-2019å¹´ èƒ½æºäº’è”ç½‘çš„è§„åˆ’ã€è¿è¡Œä¸äº¤æ˜“åŸºç¡€ç†è®ºï¼ˆå›½å®¶é‡ç‚¹ç ”å‘è®¡åˆ’ï¼‰</p><p>[2]2014å¹´-2017å¹´ åŸºäºèƒ½æºä¿¡æ¯æ„ŸçŸ¥ä¸ç‰¹æ€§åˆ†æçš„æ™ºèƒ½ç”µç½‘ä¾›éœ€åŠ¨æ€ä¼˜åŒ–åŒ¹é…ä¸è°ƒåº¦æ–¹æ³•ï¼ˆå›½å®¶è‡ªç„¶ç§‘å­¦åŸºé‡‘é‡ç‚¹é¡¹ç›®ï¼‰</p><p>[3]2011å¹´-2015å¹´ æ™ºèƒ½ä¸ç½‘ç»œåŒ–ç³»ç»Ÿï¼ˆé«˜ç­‰å­¦æ ¡å­¦ç§‘åˆ›æ–°å¼•æ™ºè®¡åˆ’ï¼‰</p><p>[4]2012å¹´-2015å¹´ æ¸…åå¤§å­¦ï¼è”åˆæŠ€æœ¯å…¬å¸å»ºç­‘èŠ‚èƒ½å®‰å…¨æ§åˆ¶è”åˆç ”ç©¶ä¸­å¿ƒï¼ˆæ¸…åå¤§å­¦å›½é™…ç§‘æŠ€åˆä½œé¡¹ç›®ï¼‰<br/></p><p></p>
-                        <h4>å¥–åŠ±ä¸è£èª‰</h4>
-<p>2015å¹´IEEE Transactions on Automatic Controlæ°å‡ºå®¡ç¨¿äºº</p><p>2014å¹´WCICAä¼˜ç§€è®ºæ–‡å¥–</p><p>2013å¹´åº¦æ•™è‚²éƒ¨é«˜ç­‰å­¦æ ¡è‡ªç„¶ç§‘å­¦å¥–äºŒç­‰å¥–</p><p>2005å¹´åº¦è‡ªåŠ¨åŒ–é¢†åŸŸç»¼è¿°è®ºæ–‡å¥–ï¼Œä¸­å›½è‡ªåŠ¨åŒ–å­¦ä¼š</p><p>2002å¹´è·æ³•å›½INRIAä¸ä¸­å›½ç§‘å­¦é™¢ä¸¾åŠçš„SCILABç§‘å­¦è®¡ç®—è½¯ä»¶ç«èµ›ä¸€ç­‰å¥–</p>
-                        <h4>å­¦æœ¯æˆæœ</h4>
-<p><strong>[è‘—ä½œç« èŠ‚]</strong><br/>[1] Li Xia and Xi-Ren Cao, &ldquo;Perturbation Analysis, Dynamic Programming, and Beyond,&rdquo;&nbsp; Chapter 7 (pp. 127-156) of the Book Stochastic Simulation Optimization for Discrete Event Systems &ndash;<br/>Perturbation Analysis, Ordinal Optimization, and Beyond, (Edited by C.H. Chen, Q.S. Jia, L.H Lee), World Scientific Publishing, 2013.</p><p><br/><strong>[æœŸåˆŠè®ºæ–‡]:</strong><br/>[1] Li Xia, Qi-Ming He and Attahiru Alfa, &ldquo;Optimal control of state-dependent service rates in a MAP/M/1 queue,&rdquo; IEEE Transactions on Automatic Control, accepted, 2016.</p><p>[2] Li Xia, &ldquo;Optimization of Markov decision processes under the variance criterion,&rdquo; Automatica, to appear, 2016.</p><p>[3] Li Xia and Qing-Shan Jia, &ldquo;Parameterized Markov decision process and its application to service rate control,&rdquo; Automatica, Vol.54, pp. 29-35, 2015.</p><p>[4] Li Xia and Basem Shihada, &ldquo;A Jackson network model and threshold policy for joint optimization of energy and delay in multi-hop wireless networks,&rdquo; European Journal of Operational Research, Vol. 242, pp. 778-787, 2015.</p><p>[5] Li Xia, &ldquo;Service rate control of closed Jackson networks from game theoretic perspective,&rdquo; European Journal of Operational Research, Vol. 237, No. 2, pp. 546-554, 2014.</p><p>[6] Li Xia, &ldquo;Event-based optimization of admission control in open queueing networks,&rdquo; Discrete Event Dynamic Systems: Theory and Applications, Vol. 24, No. 2, pp. 133-151, 2014.</p><p>[7] Li Xia, &ldquo;Policy gradient approach of event-based optimization and its online implementation,&rdquo; Asian Journal of Control, Vol. 16, No. 6, pp. 1735-1743, 2014.</p><p>[8] Li Xia and Basem Shihada, &ldquo;Power and delay optimization in multi-hop wireless networks,&rdquo; International Journal of Control, Vol. 87, No. 6, pp. 1252-1265, 2014.</p><p>[9] Li Xia, Qing-Shan Jia, and Xi-Ren Cao, &ldquo;A tutorial on event-based optimization -- A new optimization framework,&rdquo; Discrete Event Dynamic Systems: Theory and Applications, Vol. 24, No. 2, pp. 103-132, 2014.</p><p>[10] Li Xia and Basem Shihada, &ldquo;Max-Min optimality of service rate control in closed queueing networks,&rdquo; IEEE Transactions on Automatic Control, Vol. 58, pp. 1051-1056, 2013.</p><p>[11] Li Xia and Xi-Ren Cao, &ldquo;Performance optimization of queueing systems with perturbation realization,&rdquo; European Journal of Operational Research, Vol. 218, pp. 293-304, 2012.</p><p>[12] Li Xia, Wenjun Yin, Jin Dong, Teresa Wu , Ming Xie, Yanjia Zhao, &ldquo;A hybrid nested partitions algorithm for banking facility location problems,&rdquo; IEEE Transactions on Automation Science and Engineering, Vol.7, No.3, pp. 654-658, 2010.</p><p>[13] Li Xia, Xi Chen, Xi-Ren Cao, &ldquo;Policy iteration for customer-average performance optimization of closed queueing systems,&rdquo; Automatica, Vol. 45, No. 7, pp. 1639-1648, 2009.</p><p>[14] Li Xia, Qianchuan Zhao, and Qing-Shan Jia, &ldquo;A structure property of optimal policies for maintenance problems with safety-critical components,&rdquo; IEEE Transactions on Automation Science and Engineering, Vol. 5, No. 3, pp. 519-531, 2008.</p><p>[15] Xi Chen, Hongxing Bai, Li Xia, and Yu-Chi Ho, &ldquo;Design of a randomly distributed sensor network for target detection,&rdquo; Automatica, Vol. 43, No. 10, pp. 1713-1722, 2007.</p><p>[16] Li Xia and Xi-Ren Cao, &ldquo;Relationship between perturbation realization factors with queueing&nbsp;&nbsp; models and Markov models,&rdquo; IEEE Transactions on Automatic Control, Vol. 51, No. 10, pp. 1699-1704, 2006.</p><p>[17] Li Xia, Xi Chen, and Xiaohong Guan, &ldquo;A new gradient-based routing protocol in wireless sensor networks,&rdquo; Springer LECTURE NOTES IN COMPUTER SCIENCE 3605: 318-325, 2005.</p><p>[18] Li Xia, Xi Chen, Qianchuan Zhao, Yongheng Jiang, and Xiaohong Guan, &ldquo;Introduction to wireless sensor networks and their Applications,&rdquo; Automation Panorama (Chinese Journal), 2004, vol.21, no.1, pp.34-37. (best review paper award in Chinese Automation field in 2005)</p><p>&nbsp;<br/><strong>[å…¶ä»–è®ºæ–‡]:</strong><br/>[1] Li Xia, Peter W. Glynn, &ldquo;A generalized fundamental matrix for computing fundamental quantities of Markov systems,&rdquo; arXiv:1604.04343, Apr. 2016.</p><p>[2] Li Xia, Book Review for the Book &ldquo;Analytical Methods for Dynamic Modelers&rdquo; by Hazir Rahmandad, Rogelio Oliva and Nathaniel D. Osgood, International Journal of Simulation and Process Modelling, 2016.</p><p>[3] Li Xia, Jie Song, Hui Xiao, Enlu Zhou, Preface to the Special Issue on &ldquo;Simulation Modelling and Optimization of Large-Scale Systems&rdquo;, International Journal of Simulation and Process Modelling, 2016.</p><p>&nbsp;<br/><strong>[ä¼šè®®è®ºæ–‡]:</strong><br/>[1] Li Xia, Qi-Ming He and Attahiru Alfa, &ldquo;Optimal control of service rates in a MAP/M/1 queue,&rdquo; the 9th International Conference on Matrix-Analytic Methods in Stochastic Models (MAMâ€™2016), June 28-30, 2016, Budapest, Hungary.</p><p>[2] Li Xia, &ldquo;Optimization of parametric policies of Markov decision processes under a variance criterion,&rdquo; the 13th International Workshop on Discrete Event Systems (WODESâ€™2016), May 30-June 1, 2016, Xiâ€™an, China.</p><p>[3] Fenfang Zhou, Li Xia, Wei Dong, Xinya Sun, Xiang Yan, and Qianchuan Zhao, &ldquo;Fault diagnosis of high-speed railway turnout based on support vector machine,&rdquo; the 2016 IEEE International Conference on Industrial Technology (ICITâ€™2016), March 14-17, 2016, Taipei, Taiwan, pp. 1539-1544.</p><p>[4] Bocheng Li and Li Xia, &ldquo;A multi-grid reinforcement learning method for energy conservation and comfort of HVAC in buildings,&rdquo; the 2015 IEEE International Conference on Automation Science and Engineering (CASEâ€™2015), August 24-28, 2015, Gothenburg, Sweden.</p><p>[5] Li Xia, &ldquo;An iterative approach to reduce the variance of stochastic dynamic systems,&rdquo; Proceedings of the 19th IFAC World Congress, August 24-29, 2014, Cape Town, South Africa, pp. 10487-10492.</p><p>[6] Li Xia, &ldquo;Some results of Markov decision processes under variance criterion,&rdquo; the 2014 IEEE International Conference on Automation Science and Engineering (CASEâ€™2014), August 18-22, 2014, Taipei, Taiwan.</p><p>[7] Qilong Huang, Qing-Shan Jia, Li Xia, Xiaohong Guan, and Xiaolan Xie, &ldquo;EV Charging Load Scheduling Following Uncertain Renewable Energy Supply by Stochastic Matching,&rdquo; Proceedings of the 2014 IEEE International Conference on Automation Science and Engineering (CASEâ€™2014), August 18-22, 2014, Taipei, Taiwan, pp. 137-142.</p><p>[8] Yuanming Zhang, Qing-Shan Jia, Li Xia, &ldquo;Weather-forecast based optimal unit scheduling with solar power integration,&rdquo; Proceedings of the 33rd Chinese Control Conference (CCCâ€™2014), July 28-30, 2014, Nanjing, China.</p><p>[9] Qilong Huang, Qing-Shan Jia, Li Xia, and Xiaohong Guan, &ldquo;Event-Based Optimization for Stochastic Matching EV Charging Load with Uncertain Renewable Energy,&rdquo; Proceedings of the 11th World Congress on Intelligent Control and Automation (WCICAâ€™2014), June 29-July 4, 2014, Shenyang, China. (the AIAG Best Paper Award on Supply Chains)</p><p>[10] Fenfang Zhou, Li Xia, Qianchuan Zhao, and Ming Jiang,&nbsp; &ldquo;Statistical analysis of the random failure model of high-speed railway equipments,&rdquo; Proceedings of the 11th IEEE International Conference on Networking, Sensing and Control (ICNSCâ€™2014), April 7-9, 2014, Miami, FL, USA.</p><p>[11] Yulin Lei, Qing-Shan Jia, Li Xia, &ldquo;Local event-based sensor activation for occupant distribution estimation in buildings,&rdquo; Proceedings of the 11th IEEE International Conference on Networking, Sensing and Control (ICNSCâ€™2014), April 7-9, 2014, Miami, FL, USA.</p><p>[12] Zhijin Cheng, Li Xia, Qianchuan Zhao, Yin Zhao, Fulin Wang, and Fangting Song, &ldquo;Integrated control of blind and lights in daily office environment,&rdquo; Proceedings of the 9th annual IEEE International Conference on Automation Science and Engineering (CASEâ€™2013), August 17-21, 2013, Madison, Wisconsin, USA, pp. 599-604.</p><p>[13] Yin Zhao, Qianchuan Zhao, Li Xia, Zhijin Cheng, Fulin Wang, and Fangting Song, &ldquo;A unified control framework of HVAC system for thermal and acoustic comforts in office building,&rdquo; Proceedings of the 9th annual IEEE International Conference on Automation Science and Engineering (CASEâ€™2013), August 17-21, 2013, Madison, Wisconsin, USA, pp. 422-427.</p><p>[14] Li Xia and Qing-Shan Jia, &ldquo;Policy iteration for parameterized Markov decision processes and its application,&rdquo; Proceedings of the 9th Asian Control Conference (ASCCâ€™2013), June 23-26, 2013, Istanbul, Turkey.</p><p>[15] Li Xia and Basem Shihada, &ldquo;Decentralized control of transmission rates in energy-critical wireless networks,&rdquo; Proceedings of the 2013 American Control Conference (ACCâ€™2013), June 17-19, 2013, Washington, DC., USA, pp. 113-118.</p><p>[16] Li Xia and Qing-Shan Jia, &ldquo;Game theoretical control of service rates in closed Jackson networks,&rdquo; Proceedings of the 25th Chinese Control and Decision Conference (CCDCâ€™2013), May 25-27, 2013, Guiyang, China, pp. 4559-4564.</p><p>[17] Qing-Shan Jia, Zhe Wen, and Li Xia, &ldquo;Event-based sensor activation for indoor occupant distribution estimation,&rdquo; Proceedings of the 12th International Conference on Control, Automation, Robotics and Vision (ICARCVâ€™2012), December 5-7, 2012, Guangzhou, China.</p><p>[18] Qing-Shan Jia and Li Xia, &ldquo;Approximate event-based optimization for evacuation,&rdquo; Proceedings of the 11th IFAC International Workshop on Discrete Event Systems (WODESâ€™2012), October 3-5, 2012, Guadalajara, Mexico, pp. 372-377.</p><p>[19] Li Xia, &ldquo;Optimal control of customer admission to an open Jackson network,&rdquo; Proceedings of the 31st Chinese Control Conference (CCCâ€™2012), July 25-27, 2012, Hefei, China, pp. 2362-2367.</p><p>[20] Li Xia, &ldquo;Optimality property of service rates in closed Jackson networks,&rdquo; the 2012 INFORMS International Conference, June 24-27, 2012, Beijing, China.</p><p>[21] Kamran Jamshaid, Basem Shihada, Li Xia, and Philip Levis, &ldquo;Buffer sizing in 802.11 wireless mesh networks,&rdquo; Proceedings of the 8th IEEE International Conference on Mobile Ad-hoc and Sensor Systems (MASSâ€™2011), October 17-21, 2011, Valencia, Spain, pp. 272-281.</p><p>[22] Li Xia, Wenjun Yin, Weida Xu, Ming Xie, and Jinyan Shao, &ldquo;Efficient optimization of maximal covering location problems using extreme value estimation,&rdquo; Proceedings of the 2009 Winter Simulation Conference (WSCâ€™2009), December 13-16, 2009, Austin, Texas, USA, pp. 2395-2404.</p><p>[23] Li Xia, Ming Xie, Weida Xu, Wenjun Yin, and Jin Dong, &ldquo;An empirical comparison of five efficient heuristics for maximal covering location problems,&rdquo; Proceedings of the 2009 IEEE International Conference on Service Operations and Logistics, and Informatics (SOLI&#39;2009), July 22-24, 2009, Chicago, IL, USA, pp.747-753.</p><p>[24] Li Xia, Ming Xie, Wenjun Yin, and Jin Dong, &ldquo;MAX-MIN optimality of service rates in queueing systems with customer-average performance criterion,&rdquo; Proceedings of the 2008 Winter Simulation Conference (WSC&#39;2008), December 7-10, 2008, Miami, FL, USA, pp. 509-515.</p><p>[25] Jinyan Shao, Ming Xie, Li Xia, Wenjun Yin, and Jin Dong, &ldquo;Optimal service channel reconfiguration based on multi-agent simulation&rdquo;, Proceedings of the 2008 Winter Simulation Conference (WSC&#39;2008), December 7-10, 2008, Miami, FL, USA, pp. 2950-2950.</p><p>[26] Li Xia, Yanjia Zhao, Ming Xie, Jinyan Shao, and Jin Dong, &ldquo;Mixed integer programming based nested partition algorithm for facility location optimization problems,&rdquo; Proceedings of the 2008 IEEE International Conference on Service Operations and Logistics, and Informatics (SOLI&#39;2008), October 12-15, 2008, Beijing, China, pp.2375-2381.</p><p>[27] Li Xia, Ming Xie, Wenjun Yin, Jin Dong, and Jinyan Shao, &ldquo;Markov decision processes formulation for stochastic and dynamic bank branches location problems,&rdquo; Proceedings of the 2008 IEEE International Conference on Service Operations and Logistics, and Informatics (SOLI&#39;2008), October 12-15, Beijing, China, pp. 419-424.</p><p>[28] Li Xia and Xi-Ren Cao, &ldquo;Aggregation of perturbation realization factors and service rate-based policy iteration of queueing systems,&rdquo; Proceedings of the 45th IEEE Conference on Decision and Control (CDC&#39;2006), December 13-15, 2006, San Diego, CA, USA, pp.1063-1068.</p><p>[29] Li Xia, Qianchuan Zhao, and Qing-Shan Jia, &ldquo;The SRLF rule in multi-unit joint replacement maintenance problem and its optimality,&rdquo; 12th INFORMS/APS Conference, June 23-25, 2004, Beijing, China.</p><p>&nbsp;</p><p><strong>[å¤§ä¼šæŠ¥å‘Š]:</strong><br/>[1] Xi-Ren Cao and Li Xia, &ldquo;Performance optimization of queuing systems--from the viewpoint of perturbation analysis,&rdquo; A Plenary Talk at the 5th International Conference on Queueing Theory and Network Applications (QTNA&#39;2010), Beijing, July 24-26, 2010.</p><p>&nbsp;<br/><strong>[å‘æ˜ä¸“åˆ©]:</strong><br/><strong>US Patent</strong><br/>[1] Jin Dong, Li Xia, Ming Xie, Wen Jun Yin, Li Li Zhao, &ldquo;Method for highlighting topic element and system thereof,&rdquo; Patent No. US 8482575 B2, Date of Patent 2013.7.9.</p><p>[2] Jin Dong, Ta-Hsin Li, Jin Yan Shao, Li Xia, Ming Xie, Wen Jun Yin, Bin Zhang, &ldquo;Method and apparatus for outlet location selection using the market region partition and marginal increment assignment algorithm,&rdquo; Patent No. US 8458008 B2, Date of Patent 2013.6.4.</p><p>[3] Jin Dong, Ta-Hsin Li, Jin Yan Shao, Li Xia, Ming Xie, Wen Jun Yin, Bin Zhang, &ldquo;Method and apparatus for optimal service channel reconfiguration based on multi-agent simulation,&rdquo; Publication No. US 20110188404 A1, Patent No. US 8482575 B2, Date of Patent 2013.12.31.<br/><strong>P.R.C. Patent</strong></p><p>[1] èµµä¸½ä¸½, è‘£è¿›, å°¹æ–‡å›, è°¢æ˜, å¤ä¿, &ldquo;çªå‡ºæ˜¾ç¤ºä¸»é¢˜å…ƒç´ çš„æ–¹æ³•åŠå…¶ç³»ç»Ÿ&rdquo;, ä¸­åäººæ°‘å…±å’Œå›½å‘æ˜ä¸“åˆ©æˆæƒ, ä¸“åˆ©æˆæƒå·ZL 200910132264, æˆæƒæ—¥2013.1.2.</p><p>[2] å¤ä¿, èµµåƒå·, èµµå¯…, ç¨‹å¿—é‡‘, ç‹ç¦æ—, å®‹èŠ³å©·, &ldquo;åŸºäºå­¦ä¹ ç”¨æˆ·è¡Œä¸ºçš„å¤šç»´èˆ’é€‚åº¦å®¤å†…ç¯å¢ƒæ§åˆ¶ç³»ç»Ÿ&rdquo;, ä¸­åäººæ°‘å…±å’Œå›½å®ç”¨æ–°å‹ä¸“åˆ©æˆæƒ, ä¸“åˆ©æˆæƒå·: ZL 201320416241.5, æˆæƒæ—¥2014.2.19.</p><p>[3] å¤ä¿, èµµåƒå·, ç¨‹å¿—é‡‘, ç‹ç¦æ—, èµµå¯…, å®‹èŠ³å©·, &ldquo;å…·æœ‰å‚æ•°å­¦ä¹ èƒ½åŠ›çš„ç™¾å¶ä¸ç¯å…‰çš„é›†æˆæ§åˆ¶æ–¹æ³•&rdquo;, ä¸­åäººæ°‘å…±å’Œå›½å‘æ˜ä¸“åˆ©æˆæƒ, ä¸“åˆ©æˆæƒå·: ZL 201310190381.X, æˆæƒæ—¥2015.12.9.</p><p>[4] å¤ä¿, èµµåƒå·, èµµå¯…, ç¨‹å¿—é‡‘, ç‹ç¦æ—, å®‹èŠ³å©·, &ldquo;åŸºäºå­¦ä¹ ç”¨æˆ·è¡Œä¸ºçš„å¤šç»´èˆ’é€‚åº¦å®¤å†…ç¯å¢ƒæ§åˆ¶æ–¹æ³•åŠç³»ç»Ÿ&rdquo;, ä¸­åäººæ°‘å…±å’Œå›½å‘æ˜ä¸“åˆ©æˆæƒ, ä¸“åˆ©æˆæƒå·: ZL 201310294325.0, æˆæƒæ—¥2016.1.20.</p><p>[5] å¤ä¿, å´”å‚², èµµåƒå·, ç‹ç¦æ—, ç®¡æ™“å®, &ldquo;ä¸€ç§åŸºäºæ— çº¿ä¿¡å·å¼ºåº¦çš„è®¾å¤‡è‡ªåŠ¨é…å¯¹æ–¹æ³•&rdquo;, ä¸­åäººæ°‘å…±å’Œå›½å‘æ˜ä¸“åˆ©ç”³è¯·, ä¸“åˆ©ç”³è¯·å·: CN 201510413641.4, ç”³è¯·æ—¥2015.7.14.</p><p>[6] å¤ä¿, ç‹ç¦æ—, å´”å‚², èµµåƒå·, ç®¡æ™“å®, &ldquo;æ™ºèƒ½å¼€å…³åŠç«çº¿å–ç”µæ–¹æ³•&rdquo;, ä¸­åäººæ°‘å…±å’Œå›½å‘æ˜ä¸“åˆ©ç”³è¯·, ä¸“åˆ©ç”³è¯·å·: CN 201510417376.7, ç”³è¯·æ—¥2015.7.15.</p><p>[7] å¤ä¿, å‘¨èŠ¬èŠ³, èµµåƒå·, è‘£ç‚œï¼Œå­™æ–°äºšï¼Œ&ldquo;åŸºäºæ”¯æŒå‘é‡æœºçš„é“å²”æ•…éšœè¯Šæ–­æ–¹æ³•åŠç³»ç»Ÿ&rdquo;, ä¸­åäººæ°‘å…±å’Œå›½å‘æ˜ä¸“åˆ©ç”³è¯·, ä¸“åˆ©ç”³è¯·å·: CN 201610109726.8, ç”³è¯·æ—¥2016.2.26.</p><p>&nbsp;</p><p><strong>[ä¸»è¦è¯¾ç¨‹]:</strong><br/>è®¡ç®—æœºç½‘ç»œåŠåº”ç”¨<strong>ï¼ˆæœ¬ç§‘ç”Ÿï¼‰</strong></p><p>æ’é˜Ÿè®ºä¸éšæœºæœåŠ¡ç³»ç»Ÿ<strong>ï¼ˆç ”ç©¶ç”Ÿï¼‰</strong><br/></p><p></p>
-                  </div>
-                      <!--s2_right_conç»“æŸå¤„-->
-                    <!-- end -->
-                                                              
-                </td>
-              </tr>
-            </table>
-            <!-- end -->
-                                       
-       </div>
-        <!-- ä¸­éƒ¨åŒºåŸŸç»“æŸ -->
-        
-        <!-- é¡µè„šåŒºåŸŸå¼€å§‹ -->
-        <!-- é¡µè„šåŒºåŸŸå¼€å§‹ -->
-        <div class="footer nomalwidth auto"><p>Copyright &copy; 2010 æ¸…åå¤§å­¦è‡ªåŠ¨åŒ–ç³» All Rights Reserved.</p>
-<p>åœ°å€ï¼šåŒ—äº¬å¸‚æµ·æ·€åŒºæ¸…åå›­1å· 100084</p></div>
-<!-- é¡µè„šåŒºåŸŸç»“æŸ -->        <!-- é¡µè„šåŒºåŸŸç»“æŸ -->
-        
- </div>
-    <!-- æ•´ä½“åŒºåŸŸç»“æŸ -->
 </body>
 </html>

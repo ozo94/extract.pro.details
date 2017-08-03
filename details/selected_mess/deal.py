@@ -49,6 +49,5 @@ if __name__ == '__main__':
     result = open('../result/result.txt', 'w')
     tags = open('../result/tags.txt', 'w')
 
-    # str = open('../data/result_re.txt', 'r')
 
     get_result(str, result, tags, id)
