@@ -15,9 +15,9 @@ id = 0
 
 for data in fp.iterrows():
     name = data[1][3].replace(' ', '')
-    url =  data[1][0]
-    college = data[1][1]
-    company = data[1][2]
+    url =  data[1][0].replace(' ', '')
+    college = data[1][1].replace(' ', '')
+    company = data[1][2].replace(' ', '')
 
     if not pd.isnull(url):
         URLS.append(url)
