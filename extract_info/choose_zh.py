@@ -21,7 +21,7 @@ def remove_en(data):
     return data
 
 if __name__ == '__main__':
-    datas = open('../result/sentences.txt', 'r')
+    datas = open('../data/selected_mess/sentences/sentences.txt', 'r')
     clean_ch = open('../data/extract_info/clean_ch.txt', 'w')
 
     for data in datas:

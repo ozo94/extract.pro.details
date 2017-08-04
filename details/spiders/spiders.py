@@ -2,10 +2,8 @@
 import sys
 
 import scrapy
+from selected_mess import get_url, beatifulsoup
 from readability import Document
-
-from details.selected_mess import get_url, beatifulsoup, htmlpaser
-
 
 reload(sys)
 sys.setdefaultencoding('utf-8')

@@ -29,14 +29,18 @@ def match_rule(rules, entitys, count):
     :param count:
     :return:
     '''
+
     for rule in rules.keys():
+        # 包含规则内的实体，是否满足范围
         if rule in entitys:
             if count[rule] < rules[rule][0] or count[rule] > rules[rule][1]:
                 return False
+        # 规则内要求的实体不存在时，看看该实体能否为0
         else:
-            return False
+            if rules[rule][0] > 0:
+                return False
 
-        return True
+    return True
 
 
 def give_sentences(ch, rule, fp):
@@ -84,9 +88,9 @@ def give_sentences(ch, rule, fp):
 if __name__ == "__main__":
     ch = open('../data/extract_info/ch.txt', 'r')
 
-    career_csv = open('../data/final_result/career.csv', 'w')
-    contribute_csv = open('../data/final_result/contribute.csv', 'w')
-    area_csv = open('../data/final_result/area.csv', 'w')
+    career_csv = open('../data/extract_info/final_result/career.csv', 'w')
+    contribute_csv = open('../data/extract_info/final_result/contribute.csv', 'w')
+    area_csv = open('../data/extract_info/final_result/area.csv', 'w')
 
     career = {'ORGANIZATION': [1,10], 'DATE': [0,5], 'TITLE':[1,5], 'PERSON': [0,1]}
     contribute = {'ORGANIZATION': [1,10], 'ORDINAL':[0,2], 'DATE':[0,2], 'PERSON': [0,1]}
