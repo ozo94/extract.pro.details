@@ -9,7 +9,7 @@ https://stanfordnlp.github.io/CoreNLP/index.html
 
 
 ## 项目结构
-![None](http://omouah54e.bkt.clouddn.com/CRWAL_PRO_DETAILS/1.PNG)
+![None](http://omouah54e.bkt.clouddn.com/CRWAL_PRO_DETAILS/0.PNG)
 ### details
 是scrpay爬虫部分（具体自行参考scrapy官方文档），爬取专家主页  
 **内容存储在根目录的tmp文件**   
