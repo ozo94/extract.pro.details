@@ -4,7 +4,7 @@ import sys
 import scrapy
 from readability import Document
 
-from details.selected_mess import get_url, remove_bs, remove_pas
+from details.selected_mess import get_url, beatifulsoup, htmlpaser
 
 
 reload(sys)
@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 urls = get_url.URLS
 p_name = get_url.p_name
 tags = open('tmp/tags.txt', 'w')
-result = open('tmp/result.txt', 'w')
+contents = open('tmp/contents.txt', 'w')
 
 
 class DSpider(scrapy.Spider):
@@ -44,12 +44,12 @@ class DSpider(scrapy.Spider):
 
         # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
         # data = remove_pas.FilterTag.strip_tags(clean_html)
-        data = remove_bs.get_thml_content(clean_html)
+        data = beatifulsoup.get_thml_content(clean_html)
         if data :
             # 获取对应专家的信息
             key = response.url
             str_data = data
-            result.write(str_data + '\n')
+            contents.write(str_data + '\n')
             tag_data = p_name[key][1]+ ';'+ p_name[key][2]+ ';'+ p_name[key][3]
             tags.write(tag_data + '\n')
 
