@@ -6,7 +6,7 @@ def get_thml_content(s):
     ini_data = []
     soup = BeautifulSoup(s)
 
-    symbol = [',', '，', '、', '-', '——', '《', '(', '（', ':', '：', '。', ']', '}', '】', ':', '：']
+    symbol = [',', '，', '、', '-', '——', '《', '(', '（', ':', '：', '。', ']', '}', '】']
 
 
     for s in soup.stripped_strings:
@@ -31,6 +31,6 @@ def get_thml_content(s):
 
 if __name__ == '__main__':
     s = file('../../tmp/clean_html.html').read()
-    fp = open('../test/result_bs.txt', 'w')
+    fp = open('../data/selected_mess/test/bs.txt', 'w')
     data = get_thml_content(s)
     fp.write(data)

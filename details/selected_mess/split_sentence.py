@@ -2,7 +2,6 @@
 import re
 
 
-
 def get_result(str ,result, tags, ids):
 
     # 对应文本的所属专家id和名字
@@ -20,21 +19,20 @@ def get_result(str ,result, tags, ids):
         setence = x.split('。')
 
         for x in setence:
-            # 去除多余空格
-            x = x.strip(' ')
+            x = x.strip(' ').strip('\n')
             data = ' '.join(x.split())
+            print data
             if data:
                 result.write(data+'\n')
                 tags.write(id[0] + ' ' + id[1]+ ' '+ id[2] +'\n')
-            print data
 
 
 if __name__ == '__main__':
-    str = open('../../tmp/result.txt', 'r')
+    str = open('../../tmp/contents.txt', 'r')
     id = open('../../tmp/tags.txt', 'r')
 
-    result = open('../result/result.txt', 'w')
-    tags = open('../result/tags.txt', 'w')
+    result = open('../data/selected_mess/sentences/sentences.txt', 'w')
+    tags = open('../data/selected_mess/sentences/tags.txt', 'w')
 
 
     get_result(str, result, tags, id)
