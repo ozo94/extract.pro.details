@@ -13,8 +13,11 @@ https://stanfordnlp.github.io/CoreNLP/index.html
 ### details
 是scrpay爬虫部分（具体自行参考scrapy官方文档），爬取专家主页  
 **内容存储在根目录的tmp文件**   
-contets.txt：逐行存储（一行为一个专家主页的所有内容）  
-tags.txt：对应专家的名字，学校，学院  
+- contets.txt：  
+逐行存储（一行为一个专家主页的所有内容）  
+- tags.txt：  
+对应专家的名字，学校，学院 
+ 
 **依赖**  
 - clean_html：  
 调用 readability 模块，去除网页的头尾（获得比较干净的body）
@@ -25,8 +28,9 @@ tags.txt：对应专家的名字，学校，学院
 ### selected_mess  
 >主页内容处理，去除标签,主要有三种方法(beautifulsoup, htmlpaser, re正则匹配)  
  
-**数据存放：data/selected_mess**   
-主要函数：split_sentence  
+- 数据存放：
+data/selected_mess  
+- 主要函数：split_sentence  
 将contets中的每行内容进行粗略的断句，并建立映射表 
 
 ### extrat_info

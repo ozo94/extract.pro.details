@@ -28,8 +28,8 @@ def get_result(str ,result, tags, ids):
 
 
 if __name__ == '__main__':
-    str = open('../../tmp/contents.txt', 'r')
-    id = open('../../tmp/tags.txt', 'r')
+    str = open('../tmp/contents.txt', 'r')
+    id = open('../tmp/tags.txt', 'r')
 
     result = open('../data/selected_mess/sentences/sentences.txt', 'w')
     tags = open('../data/selected_mess/sentences/tags.txt', 'w')

@@ -4,7 +4,9 @@ import string
 
 def remove_qoutes(data):
     # （1）去除英文符号,英文不需要转码
-    data = data.translate(None, string.punctuation)
+    # data = data.translate(None, string.punctuation)
+    for qoute in string.punctuation:
+        data = data.replace(qoute, ' ')
 
 
     # （2）去除中文的符号
@@ -33,5 +35,6 @@ if __name__ == '__main__':
         data = ' '.join(data.split())
         if  data == '':
             data = '0'
+        # print data
         clean_ch.write(data+ '\n')
 
