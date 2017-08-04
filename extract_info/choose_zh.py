@@ -32,7 +32,7 @@ if __name__ == '__main__':
         data = remove_qoutes(data)
         data = remove_en(data)
 
-        data = ' '.join(data.split())
+        data = ''.join(data.split())
         if  data == '':
             data = '0'
         # print data

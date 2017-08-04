@@ -74,7 +74,7 @@ def give_sentences(ch, rule, fp):
         tag = tags_lines[line - 1].split(' ')
         name = tag[0]
         college = tag[1]
-        company = tag[2]
+        company = tag[2].strip('\n')
 
         if flag == name:
             fp.write( data.strip('\n') + '。')
@@ -92,8 +92,8 @@ if __name__ == "__main__":
     contribute_csv = open('../data/extract_info/final_result/contribute.csv', 'w')
     area_csv = open('../data/extract_info/final_result/area.csv', 'w')
 
-    career = {'ORGANIZATION': [1,10], 'DATE': [0,5], 'TITLE':[1,5], 'PERSON': [0,1]}
-    contribute = {'ORGANIZATION': [1,10], 'ORDINAL':[0,2], 'DATE':[0,2], 'PERSON': [0,1]}
+    career = {'ORGANIZATION': [1,5], 'DATE': [0,5], 'TITLE':[1,5], 'PERSON': [0,0], 'ORDINAL':[0,0] }
+    contribute = {'ORGANIZATION': [1,10], 'ORDINAL':[0,2], 'DATE':[0,2], 'PERSON': [0,0]}
     article = {}
     area = {'O':[2,20]}
 
