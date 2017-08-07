@@ -42,10 +42,11 @@ class FilterTag():
 
 
         for data in cache:
-            data = data.replace('\t','').replace('\n', '').replace('\r', '').replace(' ', '')
+            # \r
+            data = data.replace('\t','').replace('\n', '。').replace('\r', '')
 
             if data:
-                result.append(data)
+                result.append(data.strip(' '))
 
         return ' '.join(result)
 

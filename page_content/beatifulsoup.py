@@ -6,26 +6,14 @@ def get_thml_content(s):
     ini_data = []
     soup = BeautifulSoup(s)
 
-    symbol = [',', '，', '、', '-', '——', '《', '(', '（', ':', '：', '。', ']', '}', '】']
-
-
     for s in soup.stripped_strings:
         block = str(s.encode('utf-8'))
-        x = block.replace('\t', '').replace('\n', '').replace('\r', '')
+        content = block.replace('\t', '').replace('\n', '').replace('\r', '').replace(' ', '')
 
-        flag = 0
-        for end in symbol:
-            if x.endswith(end):
-                # 一个汉字（包括汉字符号）在unicode中占3个字符，没法用x[-1]的方式来获取结尾符号是什么
-                flag = 1
-                break
+        # 一个汉字（包括汉字符号）在unicode中占3个字符，没法用content[-1]的方式来获取结尾符号是什么，需要使用content.endwith()
+        ini_data.append(content)
 
-        if flag:
-            ini_data.append(x)
-        else:
-            ini_data.append(x + '。')
-
-    data = ''.join(ini_data)
+    data = ' '.join(ini_data)
     print data
     return data
 
