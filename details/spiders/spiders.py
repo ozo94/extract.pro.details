@@ -2,8 +2,10 @@
 import sys
 
 import scrapy
-from selected_mess import get_url, beatifulsoup
 from readability import Document
+
+from details.spiders import get_url
+from page_content import beatifulsoup, htmlpaser
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -41,8 +43,8 @@ class DSpider(scrapy.Spider):
 
 
         # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
-        # data = remove_pas.FilterTag.strip_tags(clean_html)
-        data = beatifulsoup.get_thml_content(clean_html)
+        data = htmlpaser.FilterTag.strip_tags(clean_html)
+        # data = beatifulsoup.get_thml_content(clean_html)
         if data :
             # 获取对应专家的信息
             key = response.url

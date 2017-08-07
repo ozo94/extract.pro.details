@@ -39,13 +39,15 @@ class FilterTag():
         parser.feed(htmlStr)
         parser.close()
 
+
+
         for data in cache:
-            data = data.replace('\t','').replace('\n', '').replace('\r', '')
+            data = data.replace('\t','').replace('\n', '').replace('\r', '').replace(' ', '')
 
             if data:
-                result.append(data+ ' ')
+                result.append(data)
 
-        return ''.join(result)
+        return ' '.join(result)
 
 
 
