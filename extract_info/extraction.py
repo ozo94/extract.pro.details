@@ -156,7 +156,7 @@ if __name__ == "__main__":
     contribute_csv = open('../data/final_result/contribute.csv', 'w')
     area_csv = open('../data/final_result/area.csv', 'w')
 
-    career = {'ORGANIZATION': [1,10], 'DATE': [1,5], 'TITLE': [0,2] }
+    career = {'ORGANIZATION': [1,10], 'DATE': [1,5], 'TITLE': [0,2], 'PERSON': [0,0] }
     contribute = {'ORGANIZATION': [1,10],  'DATE':[0,2]}
     area = {'O':[2,20]}
 
