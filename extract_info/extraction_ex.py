@@ -3,22 +3,18 @@
 
 def get_entitys(row_ch):
     '''
-    统计中文字符串中，对应实体的种类和个数（ch.txt文件中给出了sentences中每行包含的实体名）
+    统计中文字符串中，对应实体的种类（ch.txt文件中给出了sentences中每行包含的实体名）
     :param row_ch: ch.txt中对应行的所有实体名（通过斯坦福coreNLP中文模型工具，逐行分析，结果存入ch.txt文件中去）
-    :return: 返回对应行，实体种类以及统计的数目
+    :return: 返回对应行，实体种类
     '''
     entitys = []
-    count = {}
     ch_alls = row_ch.strip().split(' ')
 
     for entity in ch_alls:
-        if entity not in entitys:
+        if entity not in entitys and entity:
             entitys.append(entity)
-            count[entity] = 1
-        else:
-            count[entity] += 1
 
-    return entitys, count
+    return entitys
 
 
 def judge_absent(row_content, category):
@@ -28,11 +24,11 @@ def judge_absent(row_content, category):
     :param category: 额外规则种类（对应txt文本匹配词）
     :return:
     '''
-    rex = open('../data/rule/'+category+'_absent.txt', 'r')
+    rex = open('../data/rule/'+category+'/absent.txt', 'r')
 
     for token in rex:
-        token = token.strip('\n')
-        if token in row_content:
+        token = token.strip('\n').strip(' ')
+        if token and token in row_content:
             return True
 
     return False
@@ -47,18 +43,18 @@ def judge_all(row_content, category , mode = 'all'):
     '''
     contain, not_contain = 0 , 1
 
-    rex_c = open('../data/rule/'+category+'_contain.txt', 'r')
-    rex_n = open('../data/rule/'+category+'_notC.txt', 'r')
+    rex_c = open('../data/rule/'+category+'/contain.txt', 'r')
+    rex_n = open('../data/rule/'+category+'/notC.txt', 'r')
 
     for token in rex_c:
-        token = token.strip('\n')
-        if token in row_content:
+        token = token.strip('\n').strip(' ')
+        if token and token in row_content:
             contain  = 1
             break
 
     for token in rex_n:
-        token = token.strip('\n')
-        if token in row_content:
+        token = token.strip('\n').strip(' ')
+        if token and token in row_content:
             not_contain = 0
             break
 
@@ -69,12 +65,33 @@ def judge_all(row_content, category , mode = 'all'):
     if mode == 'all':
         return contain and not_contain
 
+def judge_in(entitys, sub_rule, mode = 'or'):
+    '''
+    判断子规则中是否包含某个实体，两种模式：全包含，至少包含一个
+    :param entitys:
+    :param sub_rule: 一个list，子规则（实体名的集合）
+    :param mode: or,all
+    :return:
+    '''
 
-def match_rule(row_content, rules, entitys, count, category, mode):
+    if mode == 'or':
+        for entity in entitys:
+            if entity in sub_rule :
+                return True
+        return False
+
+    elif mode == 'all':
+        sub_rules = sub_rule.spilt(',')
+        for entity in sub_rules:
+            if entity not in entitys:
+                return False
+        return True
+
+def match_rule(row_content, rules, entitys, category, mode):
     '''
     判断当前的句子符不符合规则，返回boolean值
-    :param rules: 规则：实体种类、每类个数范围，career = {'ORGANIZATION': [1,10], 'DATE': [0,5], 'TITLE':[1,5], 'PERSON': [0,1]}
-    :param entitys:
+    :param rules: 规则包含四种子规则（针对实体的覆盖情况），可以缺省（_sel）,不包含（_no）,全包含（_and）,选择包含（_or）
+    :param entitys: 实体集合
     :param count:
     :return:
     '''
@@ -83,22 +100,24 @@ def match_rule(row_content, rules, entitys, count, category, mode):
     if not judge_all(row_content, category, mode):
         return False
 
-    # 实体判断，缺省处理
-    for rule in rules.keys():
-        # 包含规则内的实体，是否满足范围
-        if rule in entitys:
-            if count[rule] < rules[rule][0] or count[rule] > rules[rule][1]:
+    # 实体规则判断
+    for key in rules.keys():
+        if key == '_no':
+            if judge_in(entitys, rules[key]):
                 return False
-        # 规则内要求的实体不存在时，看看该实体能否为0
-        else:
-            if rules[rule][0] > 0:
+        elif key == '_sel':
+            if not judge_absent(row_content, category):
                 return False
-            elif rules[rule][0] == 0 and rules[rule][1] >0 :
-                if not judge_absent(row_content, category):
-                    return False
-
+        elif key == '_or':
+            if not judge_in(entitys, rules[key]):
+                return False
+        elif key == '_and':
+            if not judge_in(entitys, rules[key], 'all'):
+                return False
 
     return True
+
+
 
 
 def give_sentences(rule, category, mode, fp):
@@ -125,9 +144,10 @@ def give_sentences(rule, category, mode, fp):
 
     # 逐行读取，将满足规则句子所在行号记录下来（entitys[0]记录的就是行号，从1开始）
     for i in range(rows):
-        entitys, count = get_entitys(ch_lines[i])
+        entitys = get_entitys(ch_lines[i])
         row_content = result_lines[i].strip('\n')
-        if match_rule(row_content, rule, entitys, count, category, mode):
+
+        if match_rule(row_content, rule, entitys, category, mode):
             lines.append(int(entitys[0]))
 
 
@@ -135,7 +155,7 @@ def give_sentences(rule, category, mode, fp):
     flag = ''
     for line in lines:
         data = result_lines[line - 1].strip('\n')
-        # print line, ':' , data
+        print line, ':' , data
         tag = tags_lines[line - 1].split(' ')
         name = tag[0]
         college = tag[1]
@@ -160,6 +180,7 @@ def show_rows(lines):
         print line, ':', row_data
 
 
+
 if __name__ == "__main__":
 
     career_csv = open('../data/final_result/career.csv', 'w')
@@ -167,29 +188,29 @@ if __name__ == "__main__":
     job_csv = open('../data/final_result/job.csv', 'w')
     area_csv = open('../data/final_result/area.csv', 'w')
 
-    career = {'ORGANIZATION': [1,10], 'DATE': [0,5], 'TITLE': [0,2], 'PERSON': [0,0] }
+    career = {'_no': ['PERSON'], '_sel': ['DATE','TITLE'], '_or': ['ORGANIZATION','GPE','COUNTRY']}
     contribute = {'ORGANIZATION': [1,10],  'DATE':[0,2], 'TITLE':[0,0]}
     job = {'ORGANIZATION': [1,10],  'DATE':[0,2], 'TITLE':[0,2]}
     area = {'O':[2,20]}
 
 
     l_car = give_sentences(career, 'career', 'not_contain', career_csv)
-    l_con = give_sentences(contribute, 'contribute', 'contain', contribute_csv)
-    l_job = give_sentences(job, 'job', 'contain', job_csv )
+    # l_con = give_sentences(contribute, 'contribute', 'contain', contribute_csv)
+    # l_job = give_sentences(job, 'job', 'contain', job_csv )
     # give_sentences(ch, area, area_csv)
 
 
     # 分析提取文本结果，完善规则表
-    concflict = []
-    miss = []
-
-    for id in range(1934):
-        if id in l_car and id in l_con and id in l_job:
-            concflict.append(id)
-        if id not in l_car and id not in l_con and id not in l_job:
-            miss.append(id)
-
-    show_rows(miss)
+    # concflict = []
+    # miss = []
+    #
+    # for id in range(1934):
+    #     if id in l_car and id in l_con and id in l_job:
+    #         concflict.append(id)
+    #     if id not in l_car and id not in l_con and id not in l_job:
+    #         miss.append(id)
+    #
+    # show_rows(miss)
 
 
 
