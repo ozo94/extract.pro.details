@@ -43,7 +43,7 @@ class FilterTag():
 
         for data in cache:
             # \r
-            data = data.replace('\t','').replace('\n', '。').replace('\r', '')
+            data = data.replace('\t',' ').replace('\n', '。').replace('\r', ' ')
 
             if data:
                 result.append(data.strip(' '))

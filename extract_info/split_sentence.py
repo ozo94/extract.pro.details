@@ -1,9 +1,18 @@
 # coding=utf-8
 import re
-from choose_zh import remove_qoutes
 
 
-def get_result(str ,result, tags, ids):
+def get_result(str ,result, tags, ids, MIN_LEN ,MAX_LEN):
+    '''
+    对原始文本断句，建立新的文档（txt）
+    :param str: 原始文本
+    :param result: 断完句后的新文本
+    :param tags: 新文本的映射表（每行对应哪个专家信息）
+    :param ids: 旧文本映射表
+    :param MIN_LEN: 断句后，每句的最小长度，不满足就抛弃该句
+    :param MAX_LEN: 断句后，每句的最大长度
+    :return:
+    '''
 
     # 对应文本的所属专家id和名字
     id_list = []
@@ -22,34 +31,19 @@ def get_result(str ,result, tags, ids):
 
         for datas in setence:
             datas = ' '.join(datas.strip(' ').split(' '))
-            if datas:
+            if len(datas) > MIN_LEN:
                 print datas
-                if len(datas)> 120:
+                # 句子过长时，考虑对句子分解
+                if len(datas) > MAX_LEN:
                     datas = re.split('，|、', datas)
                     for data in datas:
-                        result.write(data.strip(' ') + '\n')
-                        tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
+                        # 分解失败，去除
+                        if len(data) < MAX_LEN:
+                            result.write(data.strip(' ') + '\n')
+                            tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
                 else:
                     result.write(datas.strip(' ') + '\n')
                     tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
-
-            # # 空格分割，句子结尾处可能并没有符号
-            # # ' 1987 年 毕业...' 解决每个属性过短的情况
-            # datas = datas.split(' ')
-            #
-            # # 五个中文字符的长度为15
-            # row = ''
-            # for data in datas:
-            #     data = data.strip(' ')
-            #     if len(data)>15:
-            #         row += data
-            #         print row.strip(' ')
-            #         result.write(row.strip(' ') + '\n')
-            #         tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
-            #         row = ' '
-            #     else:
-            #         row += data
-
 
 
 
@@ -61,4 +55,4 @@ if __name__ == '__main__':
     tags = open('../data/sentences/tags.txt', 'w')
 
 
-    get_result(str, result, tags, id)
+    get_result(str, result, tags, id, 20, 100)

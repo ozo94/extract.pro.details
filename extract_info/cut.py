@@ -13,3 +13,6 @@ token = '奖'
 
 if token in str:
     print token
+
+str = ' 　 1974-1975 年河北省香河县木器厂工作'
+print str.strip(' ').strip('　')

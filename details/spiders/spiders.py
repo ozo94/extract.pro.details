@@ -6,6 +6,7 @@ from readability import Document
 
 from details.spiders import get_url
 from page_content import beatifulsoup, htmlpaser
+from page_content.htmlpaser import get_code
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -16,6 +17,7 @@ urls = get_url.URLS
 p_name = get_url.p_name
 tags = open('tmp/tags.txt', 'w')
 contents = open('tmp/contents.txt', 'w')
+logs = open('tmp/logs.txt', 'w')
 
 
 class DSpider(scrapy.Spider):
@@ -36,20 +38,29 @@ class DSpider(scrapy.Spider):
             f.write(response.body)
         self.log('Saved file %s' % filename)
 
-
         # 使用readability包的初步处理，由于网页格式的问题（网页不规范），效果并不理想
         doc = Document(response.body)
         clean_html, title = self.get_cleanpage(doc)
+        # 不使用依赖包，对原生网页内容转码
+        code = get_code(response.body)
+        origin_html = response.body.decode(code)
 
 
         # 使用htmlpaser,仍然存在问题(配合readablity来完成基本的抽取)
-        data = htmlpaser.FilterTag.strip_tags(clean_html)
+        # data = htmlpaser.FilterTag.strip_tags(clean_html)
         # data = beatifulsoup.get_thml_content(clean_html)
+
+        data = htmlpaser.FilterTag.strip_tags(origin_html).strip(' ')
         if data :
-            # 获取对应专家的信息
-            key = response.url
             str_data = data
             contents.write(str_data + '\n')
+
+            # 获取对应专家的信息(url为key)
+            key = response.url
+
+            if not p_name.has_key(key):
+                logs.write('miss url: ', key + '\n')
+
             tag_data = p_name[key][1]+ ';'+ p_name[key][2]+ ';'+ p_name[key][3]
             tags.write(tag_data + '\n')
 

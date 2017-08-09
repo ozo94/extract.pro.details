@@ -81,8 +81,7 @@ def judge_in(entitys, sub_rule, mode = 'or'):
         return False
 
     elif mode == 'all':
-        sub_rules = sub_rule.spilt(',')
-        for entity in sub_rules:
+        for entity in sub_rule:
             if entity not in entitys:
                 return False
         return True
@@ -97,7 +96,7 @@ def match_rule(row_content, rules, entitys, category, mode):
     '''
 
     # 先验判断
-    if not judge_all(row_content, category, mode):
+    if  not judge_all(row_content, category, mode):
         return False
 
     # 实体规则判断
@@ -106,8 +105,9 @@ def match_rule(row_content, rules, entitys, category, mode):
             if judge_in(entitys, rules[key]):
                 return False
         elif key == '_sel':
-            if not judge_absent(row_content, category):
-                return False
+            if not judge_in(entitys, rules[key], 'all'):
+                if not judge_absent(row_content, category):
+                    return False
         elif key == '_or':
             if not judge_in(entitys, rules[key]):
                 return False
@@ -189,8 +189,8 @@ if __name__ == "__main__":
     area_csv = open('../data/final_result/area.csv', 'w')
 
     career = {'_no': ['PERSON'], '_sel': ['DATE','TITLE'], '_or': ['ORGANIZATION','GPE','COUNTRY']}
-    contribute = {'ORGANIZATION': [1,10],  'DATE':[0,2], 'TITLE':[0,0]}
-    job = {'ORGANIZATION': [1,10],  'DATE':[0,2], 'TITLE':[0,2]}
+    contribute = {'_sel': ['DATE','TITLE'], '_or': ['ORGANIZATION','GPE','COUNTRY','FACILITY','STATE_OR_PROVINCE','LOCATION']}
+    job = { '_sel': ['DATE','TITLE'], '_or': ['ORGANIZATION','GPE','FACILITY','COUNTRY','STATE_OR_PROVINCE','LOCATION']}
     area = {'O':[2,20]}
 
 
