@@ -33,13 +33,35 @@ def optimization(data):
     进一步规范文本内容，保留一定量的基本符号，去除特殊字符
     :return:
     '''
-    data = re.sub("[！？￥……&【】　◆]+".decode('utf-8'), ' ', data)
+    data = ' ' + data
+    # 去除特殊字符
+    data = data.decode('utf-8')
+    data = re.sub("[！？￥……&【】　◆*]+".decode('utf-8'), ' ', data)
 
-    # 去除单个的英文，或者数字（一般都是序号）
-    result = []
-    datas = data.split(' ')
-    for data in datas:
-        pass
+    # 规范年月
+    data = re.sub('（(年|月|日)）'.decode('utf-8'), '', data)
+    data = re.sub('\s+(年|月|日)'.decode('utf-8'), r'\1', data)
+    data = re.sub('\s+(～|—)'.decode('utf-8'), r'\1', data)
+    data = re.sub('(～|—)\s+'.decode('utf-8'), r'\1', data)
+    data = re.sub('(年)\s+(\d+)'.decode('utf-8'), r'\1\2', data)
+    data = data.encode('utf-8')
+    data = re.sub('\s+(\/|\-|\~)', r'\1', data)
+    data = re.sub('(\/|\-|\~)\s+', r'\1', data)
+
+    # 去除序号
+    data = re.sub("((\(|\[|\{|（)\s*\d{1,2}\s*(\)|\]|\}|）)|\s+\d{1,2}\s*(\.|．|、))", '', data)
+
+    # 去除单个的英文噪声
+    data = re.sub('\s+[a-zA-Z]{1}\s+', '', data)
+
+    # 去除多余空格
+    # data = re.sub('(\w{1})\s+(\w{1})', r'\1。\2', data)
+    data = ' '.join(data.strip().split())
+
+
+
+
+    return data
 
 
 if __name__ == '__main__':

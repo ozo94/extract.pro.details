@@ -9,3 +9,10 @@
 专业
 学历
 起讫时间
+就读
+本科
+专科
+服役
+Research
+Fellow
+fellow
