@@ -44,6 +44,7 @@ def optimization(data):
     data = re.sub('\s+(～|—)'.decode('utf-8'), r'\1', data)
     data = re.sub('(～|—)\s+'.decode('utf-8'), r'\1', data)
     data = re.sub('(年)\s+(\d+)'.decode('utf-8'), r'\1\2', data)
+
     data = data.encode('utf-8')
     data = re.sub('\s+(\/|\-|\~)', r'\1', data)
     data = re.sub('(\/|\-|\~)\s+', r'\1', data)

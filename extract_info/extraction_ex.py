@@ -177,7 +177,7 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
             fp.write( data.strip('\n') + '。')
         else:
             flag = name
-            fp.write('\n'+ flag+ ','+ college+','+ company+ ',')
+            fp.write('\n'+ flag+ '；'+ college+'；'+ company+ '；')
             fp.write(data.strip('\n') + '。')
 
     return lines
