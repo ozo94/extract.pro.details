@@ -4,7 +4,7 @@ from scrapy import cmdline
 
 
 # 生成对应的文件夹
-filename = ['entities', 'final_result', 'sentences', 'source_data', 'tmp']
+filename = ['final_result', 'sentences', 'source_data', 'tmp']
 if not os.path.exists('data/'):
     os.mkdir('data/')
 

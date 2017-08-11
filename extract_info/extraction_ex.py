@@ -141,7 +141,7 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
     :param fp:
     :return:
     """
-    ch = open('../data/entities/ch.txt', 'r')
+    ch = open('entities/ch.txt', 'r')
     ch_lines = ch.readlines()
 
     result = open('../data/sentences/sentences.txt', 'r')
@@ -204,7 +204,7 @@ def find_miss(lines, batch):
     :param batch:
     :return:
     '''
-    fp = open('../data/rule/find_miss.txt', 'w')
+    fp = open('find_miss.txt', 'w')
     length = len(lines)
     if length > 1:
         for i in range(1, length):
@@ -218,7 +218,6 @@ if __name__ == "__main__":
     career_csv = open('../data/final_result/career.csv', 'w')
     contribute_csv = open('../data/final_result/contribute.csv', 'w')
     job_csv = open('../data/final_result/job.csv', 'w')
-    area_csv = open('../data/final_result/area.csv', 'w')
 
 
     career = {
@@ -237,13 +236,10 @@ if __name__ == "__main__":
             '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION']
             }
 
-    area = {'O':[2,20]}
-
 
     l_car = give_sentences(career, 'career', 'not_contain', career_csv, 20)
     l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 25)
     l_job = give_sentences(job, 'job', 'all', job_csv, 20 )
-    # give_sentences(ch, area, area_csv)
 
     # 连着许多行都没有抽取到信息，需要观察
     # find_miss(l_job, 500)
