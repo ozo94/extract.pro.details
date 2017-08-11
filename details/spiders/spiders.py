@@ -15,9 +15,9 @@ sys.setdefaultencoding('utf-8')
 # 获得专家的名字，学校，学院，个人主页这四种信息
 urls = get_url.URLS
 p_name = get_url.p_name
-tags = open('tmp/tags.txt', 'w')
-contents = open('tmp/contents.txt', 'w')
-logs = open('tmp/logs.txt', 'w')
+tags = open('data/tmp/tags.txt', 'w')
+contents = open('data/tmp/contents.txt', 'w')
+logs = open('data/tmp/logs.txt', 'w')
 
 
 class DSpider(scrapy.Spider):
@@ -33,7 +33,7 @@ class DSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        filename = 'tmp/%s.html' % 'test'
+        filename = 'data/tmp/%s.html' % 'test'
         with open(filename, 'wb') as f:
             f.write(response.body)
         self.log('Saved file %s' % filename)
@@ -84,9 +84,9 @@ class DSpider(scrapy.Spider):
         short_title = doc.short_title()
         title = doc.title()
 
-        with open('tmp/clean_html.html', 'wb') as f:
+        with open('data/tmp/clean_html.html', 'wb') as f:
             f.write(clean_html)
 
-        with open('tmp/content.html', 'wb') as f:
+        with open('data/tmp/content.html', 'wb') as f:
             f.write(content)
         return clean_html, title

@@ -1,5 +1,5 @@
 # coding=utf-8
-from choose_data import optimization
+from split_sentences.choose_data import optimization
 
 def get_entitys(row_ch):
     '''
@@ -24,7 +24,7 @@ def judge_absent(row_content, category):
     :param category: 额外规则种类（对应txt文本匹配词）
     :return:
     '''
-    rex = open('../data/rule/'+category+'/absent.txt', 'r')
+    rex = open('rule/'+category+'/absent.txt', 'r')
 
     for token in rex:
         token = token.strip('\n').strip(' ')
@@ -48,8 +48,8 @@ def judge_all(row_content, category , mode = 'all', MIN_LEN = 20):
 
     contain, not_contain = 0 , 1
 
-    rex_c = open('../data/rule/'+category+'/contain.txt', 'r')
-    rex_n = open('../data/rule/'+category+'/notC.txt', 'r')
+    rex_c = open('rule/'+category+'/contain.txt', 'r')
+    rex_n = open('rule/'+category+'/notC.txt', 'r')
 
     for token in rex_c:
         token = token.strip('\n').strip(' ')

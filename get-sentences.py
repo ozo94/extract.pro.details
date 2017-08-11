@@ -1,5 +1,5 @@
 # coding=utf-8
-from extract_info import split_sentence, choose_data
+from split_sentences import choose_data, split_sentence
 
 # path
 CONTENTS = 'tmp/contents.txt'
