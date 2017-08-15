@@ -1,4 +1,5 @@
 # coding=utf-8
+import re
 
 def get_entitys(row_ch):
     '''
@@ -149,8 +150,15 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
     tags = open('../data/sentences/tags.txt', 'r')
     tags_lines = tags.readlines()
 
+    all_pro = []
+    all_tags = open('../data/tmp/tags.txt', 'r')
+    for tag in all_tags:
+        name = tag.split(';')[0]
+        all_pro.append(name)
+
     lines = []
     rows = len(ch_lines)
+    have_pro = []
 
 
     # 逐行读取，将满足规则句子所在行号记录下来（entitys[0]记录的就是行号，从1开始）
@@ -162,24 +170,32 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
             lines.append(int(entitys[0]))
 
 
+
     # 将对应条目写到一行里面
     flag = ''
     for line in lines:
         data = result_lines[line - 1].strip('\n')
+        data = re.sub(';', '；', data)
         print line, ':' , data
         tag = tags_lines[line - 1].split(' ')
         name = tag[0]
         college = tag[1]
         company = tag[2].strip('\n')
 
+        if name not in have_pro:
+            have_pro.append(name)
+
         if flag == name:
-            fp.write( data.strip('\n') + '。')
+            fp.write( data + '。')
         else:
             flag = name
-            fp.write('\n'+ flag+ '；'+ college+'；'+ company+ '；')
-            fp.write(data.strip('\n') + '。')
+            fp.write('\n'+ flag+ ';'+ college+';'+ company+ ';')
+            fp.write(data + '。')
 
-    return lines, rows
+    # 给出没有爬到信息的对应专家名字
+    find_miss(all_pro, have_pro, category)
+
+    return lines
 
 
 def show_rows(lines):
@@ -196,19 +212,18 @@ def show_rows(lines):
         print line, ':', row_data
 
 
-def find_miss(lines, category):
+def find_miss(all_pro, have_pro, category):
     '''
-    连着许多行都没有抽取到信息，需要观察
+    连着许多行都没有抽取到信息，需要观察，给出没有抽到信息的专家名字
     :param lines:
     :param batch:
     :return:
     '''
-    fp = open(category+'_find_miss.txt', 'w')
-    length = len(lines)
-    if length > 1:
-        for i in range(1, length):
-            if lines[i] - lines[i-1]> batch:
-                fp.write(str(lines[i-1])+ ','+str(lines[i])+ '\n')
+    fp = open('../data/final_result/'+category+'_find_miss.txt', 'w')
+
+    for pro in all_pro:
+        if pro not in have_pro:
+            fp.write(pro + '\n')
 
 
 
@@ -236,7 +251,7 @@ if __name__ == "__main__":
     #         }
 
 
-    l_car = give_sentences(career, 'career', 'not_contain', career_csv, 20)
+    l_car = give_sentences(career, 'career', 'all', career_csv, 20)
     # l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 25)
     # l_job = give_sentences(job, 'job', 'all', job_csv, 20 )
 

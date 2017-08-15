@@ -9,7 +9,7 @@ SENTENCES = 'data/sentences/sentences.txt'
 TAGS = 'data/sentences/tags.txt'
 CLEAN_TXT = 'data/sentences/clean_ch.txt'
 
-MIN_LEN = 28
+MIN_LEN = 20
 MAX_LEN = 200
 
 # 文本断句

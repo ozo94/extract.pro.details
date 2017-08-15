@@ -63,4 +63,4 @@ if __name__ == '__main__':
     tags = open('../data/sentences/tags.txt', 'w')
 
 
-    get_result(str, result, tags, id, 30, 200, 0)
+    get_result(str, result, tags, id, 20, 200, 0)
