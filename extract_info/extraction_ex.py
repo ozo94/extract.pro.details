@@ -1,5 +1,4 @@
 # coding=utf-8
-from split_sentences.choose_data import optimization
 
 def get_entitys(row_ch):
     '''
@@ -113,7 +112,7 @@ def match_rule(row_content, rules, entitys, category, mode, MIN_LEN):
                 return False
 
         elif key == '_sel':
-            if judge_in(entitys, rules[key]):
+            if judge_in(entitys, rules[key]) :
                 if not judge_absent(row_content, category):
                     return False
             else:
@@ -157,7 +156,7 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
     # 逐行读取，将满足规则句子所在行号记录下来（entitys[0]记录的就是行号，从1开始）
     for i in range(rows):
         entitys = get_entitys(ch_lines[i])
-        row_content = optimization(result_lines[i].strip('\n'))
+        row_content = result_lines[i].strip('\n')
 
         if match_rule(row_content, rule, entitys, category, mode, MIN_LEN):
             lines.append(int(entitys[0]))
@@ -166,8 +165,8 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
     # 将对应条目写到一行里面
     flag = ''
     for line in lines:
-        data = optimization(result_lines[line - 1].strip('\n'))
-        # print line, ':' , data
+        data = result_lines[line - 1].strip('\n')
+        print line, ':' , data
         tag = tags_lines[line - 1].split(' ')
         name = tag[0]
         college = tag[1]
@@ -180,7 +179,7 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
             fp.write('\n'+ flag+ '；'+ college+'；'+ company+ '；')
             fp.write(data.strip('\n') + '。')
 
-    return lines
+    return lines, rows
 
 
 def show_rows(lines):
@@ -197,14 +196,14 @@ def show_rows(lines):
         print line, ':', row_data
 
 
-def find_miss(lines, batch):
+def find_miss(lines, category):
     '''
     连着许多行都没有抽取到信息，需要观察
     :param lines:
     :param batch:
     :return:
     '''
-    fp = open('find_miss.txt', 'w')
+    fp = open(category+'_find_miss.txt', 'w')
     length = len(lines)
     if length > 1:
         for i in range(1, length):
@@ -223,35 +222,35 @@ if __name__ == "__main__":
     career = {
                 '_no': ['PERSON'],
                 '_sel': ['DATE','TITLE'],
-                '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION']
+                '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION','CITY']
               }
 
-    contribute = {
-                    '_no': ['PERSON'],
-                    '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION', 'ORDINAL', 'MISC']
-                }
+    # contribute = {
+    #                 '_no': ['PERSON'],
+    #                 '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION', 'ORDINAL', 'MISC']
+    #             }
 
-    job = {
-            '_no': ['PERSON'],
-            '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION']
-            }
+    # job = {
+    #         '_no': ['PERSON'],
+    #         '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION']
+    #         }
 
 
     l_car = give_sentences(career, 'career', 'not_contain', career_csv, 20)
-    l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 25)
-    l_job = give_sentences(job, 'job', 'all', job_csv, 20 )
+    # l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 25)
+    # l_job = give_sentences(job, 'job', 'all', job_csv, 20 )
 
     # 连着许多行都没有抽取到信息，需要观察
     # find_miss(l_job, 500)
 
     # 分析提取文本结果，完善规则表，显示冲突的抽取内容
-    concflict = []
-
-    for id in range(86910):
-        if id in l_car and id in l_con and id in l_job:
-            concflict.append(id)
-
-    show_rows(concflict)
+    # concflict = []
+    #
+    # for id in range(86910):
+    #     if id in l_car and id in l_con and id in l_job:
+    #         concflict.append(id)
+    #
+    # show_rows(concflict)
 
 
 

@@ -12,7 +12,7 @@ def remove_qoutes(data):
     # （2）去除中文的符号
     # 直接用re.sub，文本内容会破相（中文字符会破开，变成乱码），首先需要进行转码
     data = data.decode('utf-8')
-    data = re.sub("[——！，。？、￥%……&*（）：；【】“”‘’《》～　◆]+".decode('utf-8'), ' ', data)
+    data = re.sub("[——！，。？、￥%……&*（）：；【】“”‘’《》～　◆│]+".decode('utf-8'), ' ', data)
     # data = re.sub("[！？￥%……&*【】《》：]+".decode('utf-8'), ' ', data)
     # print data
 
@@ -28,15 +28,42 @@ def remove_en(data):
     # print data
     return data
 
+def remove_num(data):
+    '''
+    去除文本中的中文
+    :param data:
+    :return:
+
+    '''
+    data = re.sub('\d+', ' ', data)
+    return data
+
+def judge_sentence(data, LEN):
+    '''
+    判断句子中是否含有所需要的足够量的中文文本（至少7个汉字）
+    :param data:
+    :return:
+    '''
+    data = remove_qoutes(data)
+    data = remove_en(data)
+    data = remove_num(data)
+    data = ''.join(data.strip().split())
+
+    if len(data) > LEN:
+        return True
+    else:
+        return False
+
 def optimization(data):
     '''
     进一步规范文本内容，保留一定量的基本符号，去除特殊字符
     :return:
     '''
+
     data = ' ' + data
     # 去除特殊字符
     data = data.decode('utf-8')
-    data = re.sub("[！？￥……&【】　◆*]+".decode('utf-8'), ' ', data)
+    data = re.sub("[！？￥……&【】　◆*]+".decode('utf-8'), '', data)
 
     # 规范年月
     data = re.sub('（(年|月|日)）'.decode('utf-8'), '', data)
@@ -59,9 +86,6 @@ def optimization(data):
     # data = re.sub('(\w{1})\s+(\w{1})', r'\1。\2', data)
     data = ' '.join(data.strip().split())
 
-
-
-
     return data
 
 
@@ -76,8 +100,9 @@ if __name__ == '__main__':
         data = remove_en(data)
 
         data = ' '.join(data.split()).strip(' ')
-        if  data == '':
+        if  data == '' or len(data) > 200:
             data = '0'
         # print data
         clean_ch.write(data+ '\n')
+
 

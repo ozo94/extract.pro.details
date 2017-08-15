@@ -1,8 +1,9 @@
 # coding=utf-8
 import re
+import choose_data
 
 
-def get_result(str ,result, tags, ids, MIN_LEN ,MAX_LEN):
+def get_result(str ,result, tags, ids, MIN_LEN, MAX_LEN, num ):
     '''
     对原始文本断句，建立新的文档（txt）
     :param str: 原始文本
@@ -23,36 +24,43 @@ def get_result(str ,result, tags, ids, MIN_LEN ,MAX_LEN):
     flag = 0
     for content in str:
         content = content.strip('\n')
-        print 'content:', content
+        # print 'content:', content
+        # print flag
         id = id_list[flag]
         flag = flag+1
 
         setence = re.split('。|；', content)
 
         for datas in setence:
-            datas = ' '.join(datas.strip(' ').split(' '))
-            if len(datas) > MIN_LEN:
-                print datas
-                # 句子过长时，考虑对句子分解
-                if len(datas) > MAX_LEN:
-                    datas = re.split('，|、', datas)
-                    for data in datas:
-                        # 分解失败，去除
-                        if len(data) < MAX_LEN:
-                            result.write(data.strip(' ') + '\n')
-                            tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
-                else:
-                    result.write(datas.strip(' ') + '\n')
-                    tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
+            # 判断句子中是否有足够多的中文字符
 
+            if datas and choose_data.judge_sentence(datas, MIN_LEN):
+                datas = choose_data.optimization(datas)
+            else:
+                continue
+
+
+            # 句子过长时，考虑对句子分解
+            if len(datas) > MAX_LEN:
+                # print datas
+                num += 1
+            #     datas = re.split('，', datas)
+            #     for data in datas:
+            #         result.write(data.strip(' ') + '\n')
+            #         tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
+
+            result.write(datas.strip(' ') + '\n')
+            tags.write(id[0] + ' ' + id[1] + ' ' + id[2] + '\n')
+
+    print 'long sentences: ', num
 
 
 if __name__ == '__main__':
-    str = open('../tmp/contents.txt', 'r')
-    id = open('../tmp/tags.txt', 'r')
+    str = open('../data/tmp/contents.txt', 'r')
+    id = open('../data/tmp/tags.txt', 'r')
 
     result = open('../data/sentences/sentences.txt', 'w')
     tags = open('../data/sentences/tags.txt', 'w')
 
 
-    get_result(str, result, tags, id, 20, 100)
+    get_result(str, result, tags, id, 30, 200, 0)

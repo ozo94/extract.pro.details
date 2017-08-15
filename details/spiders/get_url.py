@@ -6,7 +6,7 @@ import pandas as pd
 
 # 引用这个模块时，爬虫的起始处理路径为整个项目的根目录
 # fp = pd.read_csv('details/data/url_t1.csv')
-fp = pd.read_csv('data/source_data/dnxz.csv')
+fp = pd.read_csv('data/source_data/kzkx_all.csv')
 
 
 URLS = []
