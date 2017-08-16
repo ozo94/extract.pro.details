@@ -240,20 +240,20 @@ if __name__ == "__main__":
                 '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION','CITY']
               }
 
-    # contribute = {
-    #                 '_no': ['PERSON'],
-    #                 '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION', 'ORDINAL', 'MISC']
-    #             }
+    contribute = {
+                    '_no': ['PERSON'],
+                    '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION', 'ORDINAL', 'MISC', 'CITY']
+                }
 
-    # job = {
-    #         '_no': ['PERSON'],
-    #         '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION']
-    #         }
+    job = {
+            '_no': ['PERSON'],
+            '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION', 'CITY']
+            }
 
 
     l_car = give_sentences(career, 'career', 'all', career_csv, 20)
-    # l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 25)
-    # l_job = give_sentences(job, 'job', 'all', job_csv, 20 )
+    l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 25)
+    l_job = give_sentences(job, 'job', 'all', job_csv, 20 )
 
     # 连着许多行都没有抽取到信息，需要观察
     # find_miss(l_job, 500)
