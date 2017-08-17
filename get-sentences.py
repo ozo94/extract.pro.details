@@ -20,6 +20,8 @@ result = open(SENTENCES, 'w')
 tags = open(TAGS, 'w')
 
 split_sentence.get_result(contents, result, tags, ids, MIN_LEN, MAX_LEN, 0)
+# 必须执行close方法，不然会影响下文的引用
+result.close()
 
 # 去除句子中的标点和符号
 datas = open(SENTENCES, 'r')
@@ -27,6 +29,7 @@ clean_ch = open(CLEAN_TXT, 'w')
 
 for data in datas:
     data = data.strip('\n')
+    print data
 
     data = choose_data.remove_qoutes(data)
     data = choose_data.remove_en(data)
