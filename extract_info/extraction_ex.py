@@ -96,7 +96,7 @@ def judge_in(entitys, sub_rule, mode = 'or'):
 def match_rule(row_content, rules, entitys, category, mode, MIN_LEN):
     '''
     判断当前的句子符不符合规则，返回boolean值
-    :param rules: 规则包含四种子规则（针对实体的覆盖情况），可以缺省,有缺省判断（_sel）,不包含（_no）,全包含（_and）,选择包含（_or）
+    :param rules: 规则包含四种子规则（针对实体的覆盖情况），可以缺省,有缺省判断（_sel）,不包含（_no）,全包含（_and）,选择包含,没有缺省条件（_or）
     :param entitys: 实体集合
     :param count:
     :return:
@@ -176,7 +176,7 @@ def give_sentences(rule, category, mode, fp, MIN_LEN):
     for line in lines:
         data = result_lines[line - 1].strip('\n')
         data = re.sub(';', '；', data)
-        print line, ':' , data
+        # print line, ':' , data
         tag = tags_lines[line - 1].split(' ')
         name = tag[0]
         college = tag[1]
@@ -242,7 +242,8 @@ if __name__ == "__main__":
 
     contribute = {
                     '_no': ['PERSON'],
-                    '_or': ['ORGANIZATION','GPE','COUNTRY','STATE_OR_PROVINCE','FACILITY','LOCATION', 'ORDINAL', 'MISC', 'CITY']
+                    '_or': ['ORGANIZATION','GPE','COUNTRY', 'CITY', 'STATE_OR_PROVINCE', 'FACILITY',
+                            'LOCATION', 'DEMONYM', 'ORDINAL', 'MISC', 'DATTE', 'TITLE', 'NUMBER']
                 }
 
     job = {
@@ -252,20 +253,18 @@ if __name__ == "__main__":
 
 
     l_car = give_sentences(career, 'career', 'all', career_csv, 20)
-    l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 25)
+    l_con = give_sentences(contribute, 'contribute', 'all', contribute_csv, 20)
     l_job = give_sentences(job, 'job', 'all', job_csv, 20 )
 
-    # 连着许多行都没有抽取到信息，需要观察
-    # find_miss(l_job, 500)
 
     # 分析提取文本结果，完善规则表，显示冲突的抽取内容
-    # concflict = []
-    #
-    # for id in range(86910):
-    #     if id in l_car and id in l_con and id in l_job:
-    #         concflict.append(id)
-    #
-    # show_rows(concflict)
+    concflict = []
+
+    for id in range(86910):
+        if id in l_car and id in l_con and id in l_job:
+            concflict.append(id)
+
+    show_rows(concflict)
 
 
 
