@@ -30,7 +30,7 @@ def remove_en(data):
 
 def remove_num(data):
     '''
-    去除文本中的中文
+    去除文本中的数字
     :param data:
     :return:
 

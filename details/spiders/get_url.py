@@ -6,12 +6,11 @@ import pandas as pd
 
 # 引用这个模块时，爬虫的起始处理路径为整个项目的根目录
 # fp = pd.read_csv('details/data/url_t1.csv')
-fp = pd.read_csv('data/source_data/kzkx_all.csv')
+fp = pd.read_csv('data/source_data/pro_tables/kzkx_all.csv')
 
-
+# url集合与专家信息字典
 URLS = []
-p_name = {}
-id = 0
+pro_lists = {}
 
 for data in fp.iterrows():
     name = data[1][3].replace(' ', '')
@@ -21,7 +20,4 @@ for data in fp.iterrows():
 
     if not pd.isnull(url):
         URLS.append(url)
-        p_name[url] = [id, name, college, company]
-        id = id + 1
-        # print name, url
-
+        pro_lists[url] = [name, college, company]

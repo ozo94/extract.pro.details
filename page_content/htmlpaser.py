@@ -1,25 +1,11 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
+'''
+    使用该方法时，编码存在很大的问题（不同的网站，编码不一样，paser执行的时候有转码要求）
+'''
 
-import re
 from HTMLParser import HTMLParser
-import chardet
-
-
-# 使用该方法时，编码存在很大的问题（不同的网站，编码不一样，paser执行的时候有转码要求）
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
-# 编码预测
-def get_code(data):
-    # 这个方法会读取所有的数据流后做出判断
-    result = chardet.detect(data)
-    print result
-    return result['encoding']
-
-    # 高级用法: http://chardet.readthedocs.io/en/latest/usage.html
-
+from data_sel import del_code
 
 class FilterTag():
     def __init__(self):
@@ -39,26 +25,13 @@ class FilterTag():
         parser.feed(htmlStr)
         parser.close()
 
-
-
         for data in cache:
-            # \r
-            data = data.replace('\t',' ').replace('\n', '。').replace('\r', ' ')
-
-            if data:
+            data = data.replace('\t', ' ').replace('\n', ' ').replace('\r', ' ')
+            # 去除英文双引号，单引号代替，作为或许文本分割特征
+            data = data.replace('"',  "'")
+            if data.strip() and del_code(data):
                 result.append(data.strip(' '))
 
         return ' '.join(result)
 
-
-
-if __name__ == '__main__':
-    s = file('../../tmp/clean_html.html').read()
-    data = open('../data/selected_mess/test/htmlpas.txt', 'w')
-
-    code = get_code(s)
-
-    result = FilterTag.strip_tags(s.decode(code))
-    print result
-    data.write(result)
 

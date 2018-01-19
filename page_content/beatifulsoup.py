@@ -1,8 +1,7 @@
 # coding=utf-8
 from bs4 import BeautifulSoup
 
-# 使用beatifulsoup获取内容，会有一大堆的ajax代码，过滤的不够干净(过滤整个网页的时候)
-def get_thml_content(s):
+def get_html_content(s):
     ini_data = []
     soup = BeautifulSoup(s)
 
@@ -14,11 +13,4 @@ def get_thml_content(s):
         ini_data.append(content)
 
     data = ' '.join(ini_data)
-    print data
     return data
-
-if __name__ == '__main__':
-    s = file('../../tmp/clean_html.html').read()
-    fp = open('../data/selected_mess/test/bs.txt', 'w')
-    data = get_thml_content(s)
-    fp.write(data)
